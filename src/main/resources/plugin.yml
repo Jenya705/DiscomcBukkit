@@ -1,5 +1,5 @@
 name: Discomc
-main: space.cubicworld.Discomc
-version: 1.0-SNAPSHOT
+version: 1.0.0-SNAPSHOT
+main: space.cubicworld.DiscomcPlugin
 author: Jenya705
 website: https://github.com/Jenya705
