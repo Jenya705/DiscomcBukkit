@@ -40,7 +40,7 @@ public class DiscomcChatMCHandler implements Listener {
                 .setUsername(player.getName())
                 .setContent(message)
                 .build();
-        discordManager.getWebhookClient().send(webhookMessage);
+        discordManager.getChatWebhookClient().send(webhookMessage);
 
     }
 

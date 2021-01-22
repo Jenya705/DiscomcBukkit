@@ -19,16 +19,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d440a71-bd63-46bd-92a1-e52d139dd68f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Discomc_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Discomc_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcMessages.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcPlugin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscordManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordChatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordConnectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordConnectHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/handler/DiscomcChatMCHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/handler/DiscomcChatMCHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +88,19 @@
       <recent name="space.cubicworld.handler" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -112,7 +121,9 @@
       <workItem from="1611253387415" duration="126000" />
       <workItem from="1611253526610" duration="1935000" />
       <workItem from="1611326843265" duration="3469000" />
-      <workItem from="1611333761807" duration="2984000" />
+      <workItem from="1611333761807" duration="3742000" />
+      <workItem from="1611337551524" duration="1494000" />
+      <workItem from="1611339070320" duration="7715000" />
     </task>
     <servers />
   </component>

@@ -11,6 +11,7 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Category;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
+import space.cubicworld.console.DiscordConsoleHandler;
 import space.cubicworld.discord.DiscordChatHandler;
 import space.cubicworld.discord.DiscordConnectHandler;
 
@@ -23,7 +24,7 @@ public class DiscordManager {
 
     private JDA jda;
 
-    private WebhookClient webhookClient;
+    private WebhookClient chatWebhookClient;
 
     public DiscordManager() throws LoginException, InterruptedException {
         DiscomcPlugin discomcPlugin = DiscomcPlugin.getInstance();
@@ -32,10 +33,11 @@ public class DiscordManager {
 
         if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.MULTI_CHAT_ENABLED)) {
             jdaBuilder.addEventListeners(new DiscordChatHandler());
-            webhookClient = WebhookClient.withUrl(discomcConfiguration.getProperty(DiscomcConfiguration.MULTI_CHAT_WEBHOOK_URL));
+            chatWebhookClient = WebhookClient.withUrl(discomcConfiguration.getProperty(DiscomcConfiguration.MULTI_CHAT_WEBHOOK_URL));
         }
 
-        if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.CONNECT_ENABLED))    jdaBuilder.addEventListeners(new DiscordConnectHandler());
+        if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.CONNECT_ENABLED)) jdaBuilder.addEventListeners(new DiscordConnectHandler());
+        if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.CONSOLE_ENABLED)) jdaBuilder.addEventListeners(new DiscordConsoleHandler());
 
         setJda(jdaBuilder.build());
         getJda().awaitReady();

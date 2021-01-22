@@ -59,13 +59,28 @@ public class DiscomcConfiguration implements SettingsHolder {
             newProperty("connect.enabled", true);
 
     public static final Property<Long> CODE_REMOVE_SECONDS =
-            new BeanProperty(Long.class, "connect.codeRemoveSeconds", 300);
+            new BeanProperty(Long.class, "connect.codeRemoveSeconds", 300L);
 
     public static final Property<Boolean> NICKNAME_CHANGE_ENABLED =
             newProperty("nicknameChange.enabled", false);
 
     public static final Property<String> NICKNAME_CHANGE_PATTERN =
             newProperty("nicknameChange.pattern", "{0} | {1}");
+
+    public static final Property<Boolean> CONSOLE_ENABLED =
+            newProperty("console.enabled", true);
+
+    public static final Property<Long> CONSOLE_UPDATE =
+            new BeanProperty(Long.class, "console.updateTime", 1000L);
+
+    @Comment({
+            "In ticks (20 ticks per second)"
+    })
+    public static final Property<Long> CONSOLE_COMMAND_EXECUTION_UPDATE =
+            new BeanProperty(Long.class, "console.updateCommandUpdate", 10L);
+
+    public static final Property<Boolean> CONSOLE_FORMATTING =
+            newProperty("console.formatting", true);
 
     private DiscomcConfiguration(){ /* NOTHING */}
 
