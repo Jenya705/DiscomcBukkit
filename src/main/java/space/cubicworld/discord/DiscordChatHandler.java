@@ -8,12 +8,14 @@ import org.bukkit.ChatColor;
 import org.jetbrains.annotations.NotNull;
 import space.cubicworld.DiscomcPlugin;
 import space.cubicworld.DiscomcSave;
+import space.cubicworld.DiscordManager;
 
 public class DiscordChatHandler extends ListenerAdapter {
 
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         DiscomcPlugin discomcPlugin = DiscomcPlugin.getInstance();
+        if (event.getMessage().getAuthor().isBot()) return;
         TextChannel textChannel = event.getChannel();
         if (discomcPlugin.getDiscomcSave().getProperty(DiscomcSave.CHAT_CHANNEL_ID) != textChannel.getIdLong()) return;
 
@@ -22,7 +24,7 @@ public class DiscordChatHandler extends ListenerAdapter {
 
     }
 
-    public String buildMessage(String userName, String message){
+    public static String buildMessage(String userName, String message){
         return "<" + userName + "> " + message;
     }
 

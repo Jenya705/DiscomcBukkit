@@ -7,12 +7,14 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import space.cubicworld.DiscomcConfiguration;
 import space.cubicworld.DiscomcMessages;
 import space.cubicworld.DiscomcPlugin;
 import space.cubicworld.DiscomcSave;
 import space.cubicworld.database.DiscomcDatabase;
 
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -31,6 +33,7 @@ public class DiscordConnectHandler extends ListenerAdapter {
         if (event.getMessage().getAuthor().getIdLong() == discomcPlugin.getDiscordManager().getJda().getSelfUser().getIdLong()) return;
 
         SettingsManager discomcSave = discomcPlugin.getDiscomcSave();
+        SettingsManager discomcConfiguration = discomcPlugin.getDiscomcConfig();
         DiscomcMessages discomcMessages = discomcPlugin.getDiscomcMessages();
         TextChannel textChannel = event.getChannel();
 
@@ -60,6 +63,13 @@ public class DiscordConnectHandler extends ListenerAdapter {
                         .queue(it -> it.delete().queue());
                 Player player = Bukkit.getPlayer(playerUUID);
                 player.sendMessage(discomcMessages.getMessage(discomcMessages.getConnectSuccessInMinecraft(), true));
+                if (discomcConfiguration.getProperty(DiscomcConfiguration.NICKNAME_CHANGE_ENABLED)){
+                    event.getMessage().getGuild().modifyNickname(
+                            event.getMessage().getMember(),
+                            MessageFormat.format(discomcConfiguration.getProperty(DiscomcConfiguration.NICKNAME_CHANGE_PATTERN),
+                                    event.getMessage().getAuthor().getName(), player.getName())
+                    ).queue();
+                }
             } catch (SQLException e){
                 discomcPlugin.getLogger().log(Level.SEVERE, "Error while receiving connect code:", e);
             }

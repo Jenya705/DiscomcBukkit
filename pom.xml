@@ -44,6 +44,10 @@
             <id>codemc-repo</id>
             <url>https://repo.codemc.io/repository/maven-public/</url>
         </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -55,7 +59,12 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>4.2.0_168</version>
+            <version>4.2.0_227</version>
+        </dependency>
+        <dependency>
+            <groupId>club.minnced</groupId>
+            <artifactId>discord-webhooks</artifactId>
+            <version>0.5.4-rc</version>
         </dependency>
         <dependency>
             <groupId>org.yatopiamc</groupId>
@@ -92,6 +101,11 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.16</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.SparklingComet</groupId>
+            <artifactId>java-mojang-api</artifactId>
+            <version>master-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

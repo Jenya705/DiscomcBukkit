@@ -9,10 +9,9 @@ import lombok.Setter;
 import org.bukkit.plugin.java.JavaPlugin;
 import space.cubicworld.command.DiscomcConnectCommand;
 import space.cubicworld.database.DiscomcDatabase;
+import space.cubicworld.handler.DiscomcChatMCHandler;
 
-import javax.security.auth.login.LoginException;
 import java.io.File;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 
@@ -28,6 +27,7 @@ public class DiscomcPlugin extends JavaPlugin {
     private SettingsManager discomcSave;
     private DiscomcMessages discomcMessages;
 
+    private DiscomcMojangApi mojangApi;
     private DiscomcDatabase discomcDatabase;
     private DiscordManager discordManager;
 
@@ -53,7 +53,7 @@ public class DiscomcPlugin extends JavaPlugin {
         );
 
         try {
-            setDiscomcMessages(DiscomcMessages.load(new File(getDataFolder(), "messages.json")));
+            setDiscomcMessages(new DiscomcMessages());
             setDiscomcDatabase(new DiscomcDatabase());
             setDiscordManager(new DiscordManager());
         } catch (Exception e){
@@ -61,7 +61,12 @@ public class DiscomcPlugin extends JavaPlugin {
             setEnabled(false);
         }
 
+        setMojangApi(new DiscomcMojangApi());
+
         getCommand("connect").setExecutor(new DiscomcConnectCommand());
+
+        if (getDiscomcConfig().getProperty(DiscomcConfiguration.MULTI_CHAT_ENABLED))
+            getServer().getPluginManager().registerEvents(new DiscomcChatMCHandler(), this);
 
     }
 

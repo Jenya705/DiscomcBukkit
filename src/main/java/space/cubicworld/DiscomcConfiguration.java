@@ -10,14 +10,11 @@ import static ch.jalu.configme.properties.PropertyInitializer.newProperty;
 public class DiscomcConfiguration implements SettingsHolder {
 
     @Comment({
-            "Token of discord bot get it on discord dev portal."
+            "See ALL explanation about this values on github page."
     })
     public static final Property<String> BOT_TOKEN =
             newProperty("token", "PUT UR TOKEN HERE!");
 
-    @Comment({
-            "Server id where the bot will work"
-    })
     public static final Property<Long> MAIN_SERVER_ID =
             new BeanProperty<>(Long.class, "mainServerID", -1L);
 
@@ -44,29 +41,31 @@ public class DiscomcConfiguration implements SettingsHolder {
             "CaSe SeNsItIvE"
     })
     public static final Property<String> SQL_TYPE =
-            newProperty("sql.type", "mysql");
+            newProperty("sql.type", "postgresql");
 
-    @Comment({
-            "The bot will create all he need channels in this category",
-            "if this value -1 the bot will create category with name \"discomc\"",
-            "and change this value to it id",
-            "you can bring channels in another categories without lose it by bot"
-    })
     public static final Property<Long> CREATION_CATEGORY_ID =
             new BeanProperty<>(Long.class, "creationCategoryID", -1L);
 
-    @Comment({
-            "If the value is true bot will send messages from minecraft to discord",
-            "and from discord to minecraft."
-    })
     public static final Property<Boolean> MULTI_CHAT_ENABLED =
             newProperty("multiChat.enabled", true);
+
+    public static final Property<Boolean> PREMIUM_UUIDS_GET =
+            newProperty("multiChat.getPremiumUuids", false);
+
+    public static final Property<String> MULTI_CHAT_WEBHOOK_URL =
+            newProperty("multiChat.webhookURL", "");
 
     public static final Property<Boolean> CONNECT_ENABLED =
             newProperty("connect.enabled", true);
 
     public static final Property<Long> CODE_REMOVE_SECONDS =
             new BeanProperty(Long.class, "connect.codeRemoveSeconds", 300);
+
+    public static final Property<Boolean> NICKNAME_CHANGE_ENABLED =
+            newProperty("nicknameChange.enabled", false);
+
+    public static final Property<String> NICKNAME_CHANGE_PATTERN =
+            newProperty("nicknameChange.pattern", "{0} | {1}");
 
     private DiscomcConfiguration(){ /* NOTHING */}
 

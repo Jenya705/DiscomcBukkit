@@ -2,6 +2,7 @@ package space.cubicworld;
 
 import ch.jalu.configme.SettingsManager;
 import ch.jalu.configme.properties.Property;
+import club.minnced.discord.webhook.WebhookClient;
 import lombok.Getter;
 import lombok.Setter;
 import net.dv8tion.jda.api.JDA;
@@ -22,16 +23,24 @@ public class DiscordManager {
 
     private JDA jda;
 
+    private WebhookClient webhookClient;
+
     public DiscordManager() throws LoginException, InterruptedException {
         DiscomcPlugin discomcPlugin = DiscomcPlugin.getInstance();
+        SettingsManager discomcConfiguration = discomcPlugin.getDiscomcConfig();
         JDABuilder jdaBuilder = JDABuilder.createDefault(discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.BOT_TOKEN));
 
-        if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.MULTI_CHAT_ENABLED)) jdaBuilder.addEventListeners(new DiscordChatHandler());
+        if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.MULTI_CHAT_ENABLED)) {
+            jdaBuilder.addEventListeners(new DiscordChatHandler());
+            webhookClient = WebhookClient.withUrl(discomcConfiguration.getProperty(DiscomcConfiguration.MULTI_CHAT_WEBHOOK_URL));
+        }
+
         if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.CONNECT_ENABLED))    jdaBuilder.addEventListeners(new DiscordConnectHandler());
 
         setJda(jdaBuilder.build());
         getJda().awaitReady();
         checkForChannelsExist();
+
     }
 
     protected void checkForChannelsExist(){
