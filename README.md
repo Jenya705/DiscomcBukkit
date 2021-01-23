@@ -32,7 +32,7 @@ Congratulations! You created discomc's bot.
 * console.formatting - symbols like * will change to \*
 * roles - the function to give minecraft role if discord role gave
 # thanks
-Thanks to lombok's developers for java code generator [Lombok](https://projectlombok.org/)
-Thanks to JDA's developers for discord api [JDA](https://github.com/DV8FromTheWorld/JDA)
-Thanks to ConfigMe's developers for settings api [ConfigMe](https://github.com/AuthMe/ConfigMe)
-Thanks to JavaMojangApi's developers for api [MojangApi](https://github.com/SparklingComet/java-mojang-api)
+Thanks to lombok's developers for java code generator [Lombok](https://projectlombok.org/) <br>
+Thanks to JDA's developers for discord api [JDA](https://github.com/DV8FromTheWorld/JDA) <br>
+Thanks to ConfigMe's developers for settings api [ConfigMe](https://github.com/AuthMe/ConfigMe) <br>
+Thanks to JavaMojangApi's developers for api [MojangApi](https://github.com/SparklingComet/java-mojang-api) <br>
