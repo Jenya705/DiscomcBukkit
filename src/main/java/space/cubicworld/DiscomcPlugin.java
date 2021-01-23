@@ -10,12 +10,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
-import space.cubicworld.command.DiscomcConnectCommand;
+import org.json.simple.parser.ParseException;
+import space.cubicworld.command.ConnectCommand;
+import space.cubicworld.command.DiscomcCommand;
 import space.cubicworld.console.DiscomcAppender;
 import space.cubicworld.database.DiscomcDatabase;
 import space.cubicworld.handler.DiscomcChatMCHandler;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +37,19 @@ public class DiscomcPlugin extends JavaPlugin {
     private SettingsManager discomcConfig;
     private SettingsManager discomcSave;
     private DiscomcMessages discomcMessages;
+    private DiscomcRoles discomcRoles;
 
-    private DiscomcMojangApi mojangApi;
+    private MojangApi mojangApi;
     private DiscomcDatabase discomcDatabase;
     private DiscordManager discordManager;
 
-    public DiscomcPlugin(){
-        if (instance == null) instance = this;
+    public DiscomcPlugin() throws IllegalAccessException{
+        if (instance == null) {
+            instance = this;
+        }
+        else{
+            throw new IllegalAccessException("Plugin created twice, report to developer");
+        }
     }
 
     @Override
@@ -60,18 +69,38 @@ public class DiscomcPlugin extends JavaPlugin {
                 .create()
         );
 
+        getCommand("discomc").setExecutor(new DiscomcCommand());
+        loadAll();
+
+    }
+
+    @Override
+    public void onDisable() {
+
+        finishAll();
+        getDiscomcSave().save();
+
+    }
+
+    public void finishAll(){
+        getBukkitTasks().forEach(BukkitTask::cancel);
+        getDiscordManager().getJda().shutdown();
+
         try {
-            setDiscomcMessages(new DiscomcMessages());
-            setDiscomcDatabase(new DiscomcDatabase());
-            setDiscordManager(new DiscordManager());
-        } catch (Exception e){
-            getLogger().log(Level.SEVERE, "Error while enabling plugin:", e);
-            setEnabled(false);
+            getDiscomcDatabase().getConnection().close();
+        } catch (SQLException e){
+            getLogger().log(Level.WARNING, "SQL Connection not closed", e);
         }
+    }
 
-        setMojangApi(new DiscomcMojangApi());
+    public void loadAll(){
 
-        getCommand("connect").setExecutor(new DiscomcConnectCommand());
+        getDiscomcConfig().reload();
+        getDiscomcSave().reload();
+
+        setMojangApi(new MojangApi());
+
+        getCommand("connect").setExecutor(new ConnectCommand());
 
         if (getDiscomcConfig().getProperty(DiscomcConfiguration.MULTI_CHAT_ENABLED))
             getServer().getPluginManager().registerEvents(new DiscomcChatMCHandler(), this);
@@ -81,22 +110,22 @@ public class DiscomcPlugin extends JavaPlugin {
             logger.addAppender(new DiscomcAppender("Discomc-Console"));
         }
 
-    }
-
-    @Override
-    public void onDisable() {
-
-        getBukkitTasks().forEach(bt -> bt.cancel());
-        getDiscordManager().getJda().shutdown();
-
-        try {
-            getDiscomcDatabase().getConnection().close();
-        } catch (SQLException e){
-            getLogger().log(Level.WARNING, "SQL Connection not closed", e);
+        if (getDiscomcConfig().getProperty(DiscomcConfiguration.DISCORD_MINECRAFT_ROLE_LINK)){
+            try {
+                setDiscomcRoles(new DiscomcRoles());
+            } catch (ParseException | IOException e) {
+                getLogger().log(Level.SEVERE, "Can not load roles! Roles giving future disabled");
+            }
         }
 
-        getDiscomcConfig().save();
-        getDiscomcSave().save();
+        try {
+            setDiscomcMessages(new DiscomcMessages());
+            setDiscomcDatabase(new DiscomcDatabase());
+            setDiscordManager(new DiscordManager());
+        } catch (Exception e){
+            getLogger().log(Level.SEVERE, "Error while enabling plugin:", e);
+            setEnabled(false);
+        }
 
     }
 

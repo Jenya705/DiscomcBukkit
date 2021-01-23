@@ -11,9 +11,11 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Category;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 import space.cubicworld.console.DiscordConsoleHandler;
 import space.cubicworld.discord.DiscordChatHandler;
 import space.cubicworld.discord.DiscordConnectHandler;
+import space.cubicworld.discord.DiscordRoleHandler;
 
 import javax.security.auth.login.LoginException;
 import java.util.Arrays;
@@ -38,6 +40,10 @@ public class DiscordManager {
 
         if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.CONNECT_ENABLED)) jdaBuilder.addEventListeners(new DiscordConnectHandler());
         if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.CONSOLE_ENABLED)) jdaBuilder.addEventListeners(new DiscordConsoleHandler());
+        if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.DISCORD_MINECRAFT_ROLE_LINK) && discomcPlugin.getDiscomcRoles() != null) {
+            jdaBuilder.enableIntents(GatewayIntent.GUILD_MEMBERS);
+            jdaBuilder.addEventListeners(new DiscordRoleHandler());
+        }
 
         setJda(jdaBuilder.build());
         getJda().awaitReady();
@@ -60,6 +66,7 @@ public class DiscordManager {
                     addRolePermissionOverride(mainGuild.getRoles().get(mainGuild.getRoles().size() - 1).getIdLong(),
                     Arrays.asList(), Arrays.asList(Permission.MESSAGE_READ)).complete();
             discomcConfig.setProperty(DiscomcConfiguration.CREATION_CATEGORY_ID, category.getIdLong());
+            discomcConfig.save();
         }
         else {
             category = getJda().getCategoryById(categoryID);

@@ -93,8 +93,8 @@ public class DiscordConnectHandler extends ListenerAdapter {
         }
     }
 
-    public static void removeCode(Short code){
-        codes.remove(code);
+    public static UUID removeCode(Short code){
+        return codes.remove(code);
     }
 
 }

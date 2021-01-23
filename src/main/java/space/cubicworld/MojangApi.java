@@ -6,11 +6,11 @@ import org.shanerx.mojang.Mojang;
 import java.util.logging.Level;
 
 @Getter
-public class DiscomcMojangApi {
+public class MojangApi {
 
     private Mojang api;
 
-    public DiscomcMojangApi(){
+    public MojangApi(){
         api = new Mojang().connect();
     }
 

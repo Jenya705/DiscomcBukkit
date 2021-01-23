@@ -19,24 +19,17 @@ public class DiscomcConsoleMessagesSender extends BukkitRunnable {
     @Override
     public void run() {
         DiscomcPlugin discomcPlugin = DiscomcPlugin.getInstance();
-        while (true){
-            SettingsManager discomcConfig = discomcPlugin.getDiscomcConfig();
-            SettingsManager discomcSave = discomcPlugin.getDiscomcSave();
-            DiscordManager discordManager = discomcPlugin.getDiscordManager();
-            TextChannel consoleTextChannel = discordManager.getJda().getTextChannelById(discomcSave.getProperty(DiscomcSave.CONSOLE_CHANNEL_ID));
-            String finalMessage = "";
-            while (messagesDeque.peek() != null){
-                String message = messagesDeque.pop();
-                if (discomcConfig.getProperty(DiscomcConfiguration.CONSOLE_FORMATTING)) message = formatMessage(message);
-                finalMessage += message + "\n";
-            }
-            if (!finalMessage.isEmpty()) consoleTextChannel.sendMessage(finalMessage).queue();
-            try {
-                Thread.sleep(discomcConfig.getProperty(DiscomcConfiguration.CONSOLE_UPDATE));
-            } catch (InterruptedException e){
-                discomcPlugin.getLogger().log(Level.WARNING, "Exception while trying to set delay between check for sending console messages:", e);
-            }
+        SettingsManager discomcConfig = discomcPlugin.getDiscomcConfig();
+        SettingsManager discomcSave = discomcPlugin.getDiscomcSave();
+        DiscordManager discordManager = discomcPlugin.getDiscordManager();
+        TextChannel consoleTextChannel = discordManager.getJda().getTextChannelById(discomcSave.getProperty(DiscomcSave.CONSOLE_CHANNEL_ID));
+        String finalMessage = "";
+        while (messagesDeque.peek() != null){
+            String message = messagesDeque.pop();
+            if (discomcConfig.getProperty(DiscomcConfiguration.CONSOLE_FORMATTING)) message = formatMessage(message);
+            finalMessage += message + "\n";
         }
+        if (!finalMessage.isEmpty()) consoleTextChannel.sendMessage(finalMessage).queue();
     }
 
     public String formatMessage(String message){

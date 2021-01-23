@@ -22,9 +22,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcMessages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcMojangApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/MojangApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcPlugin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscordManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/handler/DiscomcChatMCHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/handler/DiscomcChatMCHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/DiscomcConnectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/ConnectCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/DiscomcConnectTrashRemover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/ConnectTrashRemover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/DiscomcAppender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/DiscomcAppender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/DiscomcConsoleMessagesSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/DiscomcConsoleMessagesSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/database/DiscomcDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/database/DiscomcDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordChatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordConnectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordConnectHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +83,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="discord-application" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -123,7 +132,9 @@
       <workItem from="1611326843265" duration="3469000" />
       <workItem from="1611333761807" duration="3742000" />
       <workItem from="1611337551524" duration="1494000" />
-      <workItem from="1611339070320" duration="7715000" />
+      <workItem from="1611339070320" duration="11505000" />
+      <workItem from="1611385263842" duration="6677000" />
+      <workItem from="1611394986801" duration="9901000" />
     </task>
     <servers />
   </component>

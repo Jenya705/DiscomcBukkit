@@ -1,9 +1,11 @@
 package space.cubicworld.console;
 
+import ch.jalu.configme.SettingsManager;
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.appender.AbstractAppender;
 import org.apache.logging.log4j.core.layout.PatternLayout;
 import org.bukkit.scheduler.BukkitTask;
+import space.cubicworld.DiscomcConfiguration;
 import space.cubicworld.DiscomcPlugin;
 
 public class DiscomcAppender extends AbstractAppender {
@@ -16,7 +18,10 @@ public class DiscomcAppender extends AbstractAppender {
 
     public DiscomcAppender(String name) {
         super(name, null, null);
-        DiscomcPlugin.addBukkitTask(new DiscomcConsoleMessagesSender().runTaskAsynchronously(DiscomcPlugin.getInstance()));
+        SettingsManager discomcConfig = DiscomcPlugin.getInstance().getDiscomcConfig();
+        long consoleUpdate = discomcConfig.getProperty(DiscomcConfiguration.CONSOLE_UPDATE);
+        DiscomcPlugin.addBukkitTask(new DiscomcConsoleMessagesSender().runTaskTimerAsynchronously(
+                DiscomcPlugin.getInstance(), consoleUpdate, consoleUpdate));
         start();
     }
 

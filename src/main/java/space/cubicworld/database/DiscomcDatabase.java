@@ -7,6 +7,7 @@ import space.cubicworld.DiscomcPlugin;
 
 import java.io.*;
 import java.sql.*;
+import java.util.UUID;
 
 @Getter
 public class DiscomcDatabase {
@@ -117,6 +118,13 @@ public class DiscomcDatabase {
             }
         }
         update(sql);
+    }
+
+    public UUID getPlayerByDiscordID(long discordID) throws SQLException {
+        ResultSet resultSet = query("SELECT * FROM dmc_players WHERE discordID = ?", discordID);
+        boolean haveNext = resultSet.next();
+        if (!haveNext) return null;
+        return new UUID(resultSet.getLong("mostUUID"), resultSet.getLong("lessUUID"));
     }
 
 }

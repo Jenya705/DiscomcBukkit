@@ -49,6 +49,9 @@ public class DiscomcConfiguration implements SettingsHolder {
     public static final Property<Boolean> MULTI_CHAT_ENABLED =
             newProperty("multiChat.enabled", true);
 
+    public static final Property<String> MULTI_CHAT_MESSAGE_PATTERN =
+            newProperty("multiChat.pattern", "<{0}> {1}");
+
     public static final Property<Boolean> PREMIUM_UUIDS_GET =
             newProperty("multiChat.getPremiumUuids", false);
 
@@ -81,6 +84,15 @@ public class DiscomcConfiguration implements SettingsHolder {
 
     public static final Property<Boolean> CONSOLE_FORMATTING =
             newProperty("console.formatting", true);
+
+    public static final Property<Boolean> DISCORD_MINECRAFT_ROLE_LINK =
+            newProperty("roles.enabled", false);
+
+    public static final Property<String> DISCORD_MINECRAFT_ROLE_GIVE_PATTERN =
+            newProperty("roles.give", "lp user {0} parent add {1}");
+
+    public static final Property<String> DISCORD_MINECRAFT_ROLE_REMOVE_PATTERN =
+            newProperty("roles.remove", "lp user {0} parent remove {1}");
 
     private DiscomcConfiguration(){ /* NOTHING */}
 

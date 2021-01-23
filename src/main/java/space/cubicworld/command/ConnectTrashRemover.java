@@ -7,17 +7,18 @@ import space.cubicworld.discord.DiscordConnectHandler;
 
 @Getter
 @Setter
-public class DiscomcConnectTrashRemover extends BukkitRunnable {
+public class ConnectTrashRemover extends BukkitRunnable {
 
     private short code;
 
-    public DiscomcConnectTrashRemover(short code){
+    public ConnectTrashRemover(short code){
         setCode(code);
     }
 
     @Override
     public void run() {
-        DiscordConnectHandler.removeCode(getCode());
+        ConnectCommand.removeAlreadyWrotePlayer(
+                DiscordConnectHandler.removeCode(getCode()));
     }
 
 }

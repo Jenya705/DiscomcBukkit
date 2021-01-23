@@ -7,10 +7,15 @@ commands:
   connect:
     description: Command to connect minecraft account and discord account
     permission: discomc.connect
+  discomc:
+    description: Discomc main command
 permissions:
   discomc.*:
     default: op
     children:
       discomc.connect: true
+      discomc.reload: true
   discomc.connect:
     default: true
+  discomc.reload:
+    default: op

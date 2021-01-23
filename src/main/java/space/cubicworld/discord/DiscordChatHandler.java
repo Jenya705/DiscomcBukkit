@@ -6,9 +6,12 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.jetbrains.annotations.NotNull;
+import space.cubicworld.DiscomcConfiguration;
 import space.cubicworld.DiscomcPlugin;
 import space.cubicworld.DiscomcSave;
 import space.cubicworld.DiscordManager;
+
+import java.text.MessageFormat;
 
 public class DiscordChatHandler extends ListenerAdapter {
 
@@ -25,7 +28,9 @@ public class DiscordChatHandler extends ListenerAdapter {
     }
 
     public static String buildMessage(String userName, String message){
-        return "<" + userName + "> " + message;
+        String messagePattern = DiscomcPlugin.getInstance().getDiscomcConfig().
+                getProperty(DiscomcConfiguration.MULTI_CHAT_MESSAGE_PATTERN);
+        return MessageFormat.format(messagePattern, userName, message);
     }
 
 }
