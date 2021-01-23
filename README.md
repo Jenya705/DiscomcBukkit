@@ -1,5 +1,5 @@
 # Discomc
-[![Discord](https://img.shields.io/discord/613163671870242838.svg?color=%237289da&label=discord)(https://discord.gg/wuBkYHhZqt)] 
+[![Discord](https://img.shields.io/discord/613163671870242838.svg?color=%237289da&label=discord)](https://discord.gg/wuBkYHhZqt)
 # What is discomc?
 Discomc is a bukkit plugin to make bridge between discord and minecraft server. 
 The console, multi-chat, role giving, nickname changing and connect function.
@@ -16,13 +16,18 @@ This project in development please note us if you found a bag in our discord
 9. restart the server
 Congratulations! You created discomc's bot.
 # config.yml
-token - bot token
-mainServerID - id of server where the bot will send all information
-sql - settings of sql
-creationCategoryID - id of category where the bot will create all channels
-multiChat - the function of retranslating chat from minecraft to discord and discord to minecraft
-multiChat.pattern - pattern of message from discord to minecraft {0} - nickname, {1} - content
-multiChat.webhookURL - url of webhook using to send minecraft messages to discord
-mutliChat.getPremiumUuids - if enabled the plugin will get premium uuid of player (for cracked servers) to receive avatars
-connect - the function which connecting minecraft and discord account
-connect.codeRemoveSeconds - 
+* token - bot token
+* mainServerID - id of server where the bot will send all information
+* sql - settings of sql
+* creationCategoryID - id of category where the bot will create all channels
+* multiChat - the function of retranslating chat from minecraft to discord and discord to minecraft
+* multiChat.pattern - pattern of message from discord to minecraft {0} - nickname, {1} - content
+* multiChat.webhookURL - url of webhook using to send minecraft messages to discord
+* mutliChat.getPremiumUuids - if enabled the plugin will get premium uuid of player (for cracked servers) to receive avatars
+* connect - the function which connecting minecraft and discord account
+* connect.codeRemoveSeconds - when this time spended the code will deleted from list.
+* nicknameChange - the function which chaning the discord name 
+* nicknameChange.pattern - pattern of nickname changing {0} - discord nickname, {1} - minecraft nickname
+* console - retranslate all logs to discord text channel as messages and received all message from this channel like command
+* console.formatting - symbols like * will change to \*
+* roles - the function to give minecraft role if discord role gave
