@@ -1,5 +1,5 @@
 # Discomc
-[![Discord](https://img.shields.io/discord/613163671870242838.svg?color=%237289da&label=discord)](https://discord.gg/wuBkYHhZqt)
+[![Discord](https://img.shields.io/discord/802475675067351060.svg?color=%237289da&label=discord)](https://discord.gg/wuBkYHhZqt)
 # What is discomc?
 Discomc is a bukkit plugin to make bridge between discord and minecraft server. 
 The console, multi-chat, role giving, nickname changing and connect function.
