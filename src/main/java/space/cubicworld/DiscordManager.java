@@ -37,7 +37,6 @@ public class DiscordManager {
             jdaBuilder.addEventListeners(new DiscordChatHandler());
             chatWebhookClient = WebhookClient.withUrl(discomcConfiguration.getProperty(DiscomcConfiguration.MULTI_CHAT_WEBHOOK_URL));
         }
-
         if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.CONNECT_ENABLED)) jdaBuilder.addEventListeners(new DiscordConnectHandler());
         if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.CONSOLE_ENABLED)) jdaBuilder.addEventListeners(new DiscordConsoleHandler());
         if (discomcPlugin.getDiscomcConfig().getProperty(DiscomcConfiguration.DISCORD_MINECRAFT_ROLE_LINK) && discomcPlugin.getDiscomcRoles() != null) {

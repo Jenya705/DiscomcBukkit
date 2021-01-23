@@ -100,6 +100,15 @@ public class DiscomcPlugin extends JavaPlugin {
 
         setMojangApi(new MojangApi());
 
+        try {
+            setDiscomcMessages(new DiscomcMessages());
+            setDiscomcDatabase(new DiscomcDatabase());
+            setDiscordManager(new DiscordManager());
+        } catch (Exception e){
+            getLogger().log(Level.SEVERE, "Error while enabling plugin:", e);
+            setEnabled(false);
+        }
+
         getCommand("connect").setExecutor(new ConnectCommand());
 
         if (getDiscomcConfig().getProperty(DiscomcConfiguration.MULTI_CHAT_ENABLED))
@@ -116,15 +125,6 @@ public class DiscomcPlugin extends JavaPlugin {
             } catch (ParseException | IOException e) {
                 getLogger().log(Level.SEVERE, "Can not load roles! Roles giving future disabled");
             }
-        }
-
-        try {
-            setDiscomcMessages(new DiscomcMessages());
-            setDiscomcDatabase(new DiscomcDatabase());
-            setDiscordManager(new DiscordManager());
-        } catch (Exception e){
-            getLogger().log(Level.SEVERE, "Error while enabling plugin:", e);
-            setEnabled(false);
         }
 
     }

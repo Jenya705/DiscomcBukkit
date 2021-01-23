@@ -73,8 +73,11 @@ public class DiscomcConfiguration implements SettingsHolder {
     public static final Property<Boolean> CONSOLE_ENABLED =
             newProperty("console.enabled", true);
 
+    @Comment({
+            "In ticks (20 ticks per second)"
+    })
     public static final Property<Long> CONSOLE_UPDATE =
-            new BeanProperty(Long.class, "console.updateTime", 1000L);
+            new BeanProperty(Long.class, "console.updateTime", 20L);
 
     @Comment({
             "In ticks (20 ticks per second)"

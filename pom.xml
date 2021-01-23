@@ -6,8 +6,7 @@
 
     <groupId>space.cubicworld</groupId>
     <artifactId>discomc</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-RELEASE</version>
 
     <build>
         <pluginManagement>
@@ -31,6 +30,22 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                  <execution>
+                    <phase>package</phase>
+                    <goals>
+                      <goal>single</goal>
+                    </goals>
+                  </execution>
+                </executions>
+                <configuration>
+                  <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                  </descriptorRefs>
+                </configuration>
+          </plugin>
         </plugins>
     </build>
 
@@ -47,6 +62,10 @@
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
@@ -67,10 +86,10 @@
             <version>0.5.4-rc</version>
         </dependency>
         <dependency>
-            <groupId>org.yatopiamc</groupId>
-            <artifactId>yatopia-api</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
+           <groupId>org.spigotmc</groupId>
+           <artifactId>spigot-api</artifactId>
+           <version>1.16.5-R0.1-SNAPSHOT</version>
+           <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.reflections</groupId>
