@@ -3,13 +3,6 @@ version: 2.1
 orbs:
   maven: circleci/maven@0.0.12
 
-jobs:
-  build:
-    steps:
-      - checkout
-      - restore_cache:
-          key    
-
 workflows:
   maven_test:
     jobs:
