@@ -1,4 +1,4 @@
-package space.cubicworld.console;
+package space.cubicworld.service;
 
 import ch.jalu.configme.SettingsManager;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -10,7 +10,6 @@ import space.cubicworld.DiscordManager;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.logging.Level;
 
 public class DiscomcConsoleMessagesSender extends BukkitRunnable {
 
@@ -27,6 +26,10 @@ public class DiscomcConsoleMessagesSender extends BukkitRunnable {
         while (messagesDeque.peek() != null){
             String message = messagesDeque.pop();
             if (discomcConfig.getProperty(DiscomcConfiguration.CONSOLE_FORMATTING)) message = formatMessage(message);
+            if (finalMessage.length() + message.length() >= 2000){
+                consoleTextChannel.sendMessage(finalMessage).queue();
+                finalMessage = "";
+            }
             finalMessage += message + "\n";
         }
         if (!finalMessage.isEmpty()) consoleTextChannel.sendMessage(finalMessage).queue();

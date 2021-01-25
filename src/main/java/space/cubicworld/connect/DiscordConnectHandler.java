@@ -1,4 +1,4 @@
-package space.cubicworld.discord;
+package space.cubicworld.connect;
 
 import ch.jalu.configme.SettingsManager;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -11,7 +11,7 @@ import space.cubicworld.DiscomcConfiguration;
 import space.cubicworld.DiscomcMessages;
 import space.cubicworld.DiscomcPlugin;
 import space.cubicworld.DiscomcSave;
-import space.cubicworld.database.DiscomcDatabase;
+import space.cubicworld.DiscomcDatabase;
 
 import java.sql.SQLException;
 import java.text.MessageFormat;

@@ -36,12 +36,11 @@ public class DiscomcMessages {
             Field[] fields = getClass().getDeclaredFields();
             for (Field field: fields){
                 String property = properties.getProperty(field.getName());
-                if (property == null) continue;
+                if (property == null) {
+                    properties.setProperty(field.getName(), (String) field.get(this));
+                }
                 property = property.replaceAll("&", Character.toString(ChatColor.COLOR_CHAR));
                 field.set(this, property);
-            }
-            for (Field field: fields){
-                properties.setProperty(field.getName(), (String) field.get(this));
             }
             properties.store(new FileWriter(messagesFile), "Discomc messages.");
         }

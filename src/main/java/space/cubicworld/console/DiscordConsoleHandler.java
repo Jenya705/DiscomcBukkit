@@ -8,6 +8,7 @@ import space.cubicworld.DiscomcConfiguration;
 import space.cubicworld.DiscomcPlugin;
 import space.cubicworld.DiscomcSave;
 import space.cubicworld.DiscordManager;
+import space.cubicworld.service.DiscomcCommandDispatcher;
 
 public class DiscordConsoleHandler extends ListenerAdapter {
 

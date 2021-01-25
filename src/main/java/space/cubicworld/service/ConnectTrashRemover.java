@@ -1,9 +1,10 @@
-package space.cubicworld.command;
+package space.cubicworld.service;
 
+import com.github.jenya705.command.ConnectCommand;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.scheduler.BukkitRunnable;
-import space.cubicworld.discord.DiscordConnectHandler;
+import space.cubicworld.connect.DiscordConnectHandler;
 
 @Getter
 @Setter

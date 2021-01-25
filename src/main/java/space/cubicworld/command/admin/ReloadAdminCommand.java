@@ -1,11 +1,11 @@
-package space.cubicworld.command.admin;
+package com.github.jenya705.command.admin;
 
+import com.github.jenya705.command.AdminCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 import space.cubicworld.DiscomcMessages;
 import space.cubicworld.DiscomcPlugin;
-import space.cubicworld.command.AdminCommand;
 
 
 public class ReloadAdminCommand extends AdminCommand {

@@ -1,6 +1,7 @@
-package space.cubicworld.command;
+package com.github.jenya705.command;
 
 import ch.jalu.configme.SettingsManager;
+import space.cubicworld.DiscomcPlugin;
 import net.dv8tion.jda.api.entities.TextChannel;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -8,8 +9,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import space.cubicworld.*;
-import space.cubicworld.database.DiscomcDatabase;
-import space.cubicworld.discord.DiscordConnectHandler;
+import space.cubicworld.service.ConnectTrashRemover;
+import space.cubicworld.DiscomcDatabase;
+import space.cubicworld.connect.DiscordConnectHandler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

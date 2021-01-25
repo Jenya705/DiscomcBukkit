@@ -1,4 +1,4 @@
-package space.cubicworld.discord;
+package space.cubicworld.role;
 
 import ch.jalu.configme.SettingsManager;
 import net.dv8tion.jda.api.entities.Role;
@@ -11,8 +11,8 @@ import org.jetbrains.annotations.NotNull;
 import space.cubicworld.DiscomcConfiguration;
 import space.cubicworld.DiscomcPlugin;
 import space.cubicworld.DiscomcRoles;
-import space.cubicworld.console.DiscomcCommandDispatcher;
-import space.cubicworld.database.DiscomcDatabase;
+import space.cubicworld.service.DiscomcCommandDispatcher;
+import space.cubicworld.DiscomcDatabase;
 
 import java.sql.SQLException;
 import java.text.MessageFormat;

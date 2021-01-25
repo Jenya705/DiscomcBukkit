@@ -58,6 +58,12 @@ public class DiscomcConfiguration implements SettingsHolder {
     public static final Property<String> MULTI_CHAT_WEBHOOK_URL =
             newProperty("multiChat.webhookURL", "");
 
+    public static final Property<Boolean> COLOR_NICKNAMES_WITH_HIGHEST_ROLE =
+            newProperty("multiChat.hexColor", false);
+
+    public static final Property<Boolean> FORMATTING_MESSAGES =
+            newProperty("multiChat.formatting", false);
+
     public static final Property<Boolean> CONNECT_ENABLED =
             newProperty("connect.enabled", true);
 

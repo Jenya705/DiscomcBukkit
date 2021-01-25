@@ -13,9 +13,9 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import space.cubicworld.console.DiscordConsoleHandler;
-import space.cubicworld.discord.DiscordChatHandler;
-import space.cubicworld.discord.DiscordConnectHandler;
-import space.cubicworld.discord.DiscordRoleHandler;
+import space.cubicworld.multichat.DiscordChatHandler;
+import space.cubicworld.connect.DiscordConnectHandler;
+import space.cubicworld.role.DiscordRoleHandler;
 
 import javax.security.auth.login.LoginException;
 import java.util.Arrays;

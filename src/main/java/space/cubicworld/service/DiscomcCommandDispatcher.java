@@ -1,4 +1,4 @@
-package space.cubicworld.console;
+package space.cubicworld.service;
 
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;

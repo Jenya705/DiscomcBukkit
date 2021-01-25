@@ -11,11 +11,10 @@ import org.apache.logging.log4j.core.Logger;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.json.simple.parser.ParseException;
-import space.cubicworld.command.ConnectCommand;
-import space.cubicworld.command.DiscomcCommand;
-import space.cubicworld.console.DiscomcAppender;
-import space.cubicworld.database.DiscomcDatabase;
-import space.cubicworld.handler.DiscomcChatMCHandler;
+import com.github.jenya705.command.ConnectCommand;
+import com.github.jenya705.command.DiscomcCommand;
+import space.cubicworld.console.DiscomcConsoleAppender;
+import space.cubicworld.multichat.MinecraftChatHandler;
 
 import java.io.File;
 import java.io.IOException;
@@ -112,11 +111,11 @@ public class DiscomcPlugin extends JavaPlugin {
         getCommand("connect").setExecutor(new ConnectCommand());
 
         if (getDiscomcConfig().getProperty(DiscomcConfiguration.MULTI_CHAT_ENABLED))
-            getServer().getPluginManager().registerEvents(new DiscomcChatMCHandler(), this);
+            getServer().getPluginManager().registerEvents(new MinecraftChatHandler(), this);
 
         if (getDiscomcConfig().getProperty(DiscomcConfiguration.CONSOLE_ENABLED)){
             Logger logger = (Logger) LogManager.getRootLogger();
-            logger.addAppender(new DiscomcAppender("Discomc-Console"));
+            logger.addAppender(new DiscomcConsoleAppender("Discomc-Console"));
         }
 
         if (getDiscomcConfig().getProperty(DiscomcConfiguration.DISCORD_MINECRAFT_ROLE_LINK)){

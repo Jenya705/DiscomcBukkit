@@ -1,5 +1,6 @@
-package space.cubicworld.handler;
+package space.cubicworld.service;
 
+import space.cubicworld.multichat.MinecraftChatHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -15,7 +16,7 @@ public class SendMessageRunnable extends BukkitRunnable {
 
     @Override
     public void run() {
-        DiscomcChatMCHandler.sendMessage(player, message);
+        MinecraftChatHandler.sendMessage(player, message);
     }
 
 }

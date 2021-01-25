@@ -1,4 +1,4 @@
-package space.cubicworld.handler;
+package space.cubicworld.multichat;
 
 import ch.jalu.configme.SettingsManager;
 import club.minnced.discord.webhook.send.WebhookMessage;
@@ -11,8 +11,9 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import space.cubicworld.DiscomcConfiguration;
 import space.cubicworld.DiscomcPlugin;
 import space.cubicworld.DiscordManager;
+import space.cubicworld.service.SendMessageRunnable;
 
-public class DiscomcChatMCHandler implements Listener {
+public class MinecraftChatHandler implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onMessageReceived(AsyncPlayerChatEvent event){

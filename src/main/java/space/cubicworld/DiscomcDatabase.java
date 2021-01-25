@@ -1,9 +1,7 @@
-package space.cubicworld.database;
+package space.cubicworld;
 
 import ch.jalu.configme.SettingsManager;
 import lombok.Getter;
-import space.cubicworld.DiscomcConfiguration;
-import space.cubicworld.DiscomcPlugin;
 
 import java.io.*;
 import java.sql.*;
