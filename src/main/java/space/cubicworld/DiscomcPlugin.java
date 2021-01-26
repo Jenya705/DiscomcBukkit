@@ -11,8 +11,8 @@ import org.apache.logging.log4j.core.Logger;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.json.simple.parser.ParseException;
-import com.github.jenya705.command.ConnectCommand;
-import com.github.jenya705.command.DiscomcCommand;
+import space.cubicworld.command.ConnectCommand;
+import space.cubicworld.command.DiscomcCommand;
 import space.cubicworld.console.DiscomcConsoleAppender;
 import space.cubicworld.multichat.MinecraftChatHandler;
 

@@ -1,4 +1,4 @@
-package com.github.jenya705.command;
+package space.cubicworld.command;
 
 import lombok.Getter;
 import lombok.Setter;

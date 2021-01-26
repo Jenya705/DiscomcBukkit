@@ -1,6 +1,6 @@
-package com.github.jenya705.command;
+package space.cubicworld.command;
 
-import com.github.jenya705.command.admin.ReloadAdminCommand;
+import space.cubicworld.command.admin.ReloadAdminCommand;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import space.cubicworld.DiscomcMessages;
 import space.cubicworld.DiscomcPlugin;
+import space.cubicworld.command.AdminCommand;
 
 import java.util.*;
 

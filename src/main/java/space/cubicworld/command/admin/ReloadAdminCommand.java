@@ -1,6 +1,6 @@
-package com.github.jenya705.command.admin;
+package space.cubicworld.command.admin;
 
-import com.github.jenya705.command.AdminCommand;
+import space.cubicworld.command.AdminCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;

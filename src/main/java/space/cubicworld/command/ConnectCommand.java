@@ -1,4 +1,4 @@
-package com.github.jenya705.command;
+package space.cubicworld.command;
 
 import ch.jalu.configme.SettingsManager;
 import space.cubicworld.DiscomcPlugin;
