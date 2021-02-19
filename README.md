@@ -1,5 +1,4 @@
 # Discomc
-[![Discord](https://img.shields.io/discord/802475675067351060.svg?color=%237289da&label=discord)](https://discord.gg/wuBkYHhZqt)
 * [Bukkit Page](https://dev.bukkit.org/projects/discomc)
 * [Spigot Page](https://www.spigotmc.org/resources/discomc.88199/)
 # What is discomc?
