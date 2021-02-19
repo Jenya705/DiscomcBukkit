@@ -4,7 +4,7 @@
 # What is discomc?
 Discomc is a bukkit plugin to make bridge between discord and minecraft server. 
 The console, multi-chat, role giving, nickname changing and connect function.
-This project in development please note us if you found a bag in our discord
+This project in development, report all bags to me
 # How to setup plugin?
 1. You need to make application on discord dev portal ([DiscordDevPortal](https://discord.com/developers/applications))
 2. Download plugin and grab it into plugins folder
