@@ -19,13 +19,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d440a71-bd63-46bd-92a1-e52d139dd68f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/ModuleStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatDiscordHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatMinecraftHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcDatabase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcMessages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/AdminCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/AdminCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/ConnectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/ConnectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/DiscomcCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/DiscomcCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/admin/ReloadAdminCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/admin/ReloadAdminCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/role/DiscordRoleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/role/DiscordRoleHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcRoles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcSave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscordManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/MojangApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/AdminCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/ConnectCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/DiscomcCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/admin/ReloadAdminCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/DiscordConnectHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/DiscomcConsoleAppender.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/DiscordConsoleHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/DiscordChatHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MinecraftChatHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/role/DiscordRoleHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/service/ConnectTrashRemover.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/service/DiscomcCommandDispatcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/service/DiscomcConsoleMessagesSender.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/service/SendMessageRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/setup.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlite/setup.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,15 +108,15 @@
     <property name="settings.editor.selected.configurable" value="discord-application" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jenya\Documents\CubicWorld\Discomc\bukkit-helper\src" />
-      <recent name="C:\Users\jenya\Documents\CubicWorld\Discomc\spigot" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="space.cubicworld.handler" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jenya\Documents\CubicWorld\Discomc\bukkit-helper\src" />
+      <recent name="C:\Users\jenya\Documents\CubicWorld\Discomc\spigot" />
     </key>
   </component>
   <component name="RunManager">
@@ -148,5 +178,35 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="586" y="198" key="#Inspections" timestamp="1613590755055">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="198" key="#Inspections/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613590755055" />
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1613834843221">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613834843221" />
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1613572496354">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613572496354" />
+    <state x="473" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1613836610056">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="473" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613836610056" />
+    <state x="540" y="263" key="IDE.errors.dialog" timestamp="1613772493007">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="263" key="IDE.errors.dialog/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613772493007" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1613581873919">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613581873919" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1613823171031">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613823171031" />
   </component>
 </project>

@@ -30,24 +30,19 @@
                     <target>8</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                  <execution>
-                    <phase>package</phase>
-                    <goals>
-                      <goal>single</goal>
-                    </goals>
-                  </execution>
-                </executions>
-                <configuration>
-                  <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                  </descriptorRefs>
-                </configuration>
-          </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>codemc-releases</id>
+            <url>https://repo.codemc.io/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>codemc-snapshots</id>
+            <url>https://repo.codemc.io/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <repositories>
         <repository>
@@ -92,16 +87,6 @@
            <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.reflections</groupId>
-            <artifactId>reflections</artifactId>
-            <version>0.9.12</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.jalu</groupId>
-            <artifactId>configme</artifactId>
-            <version>1.2.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.32.3</version>
@@ -117,19 +102,9 @@
             <version>8.0.16</version>
         </dependency>
         <dependency>
-            <groupId>com.github.SparklingComet</groupId>
-            <artifactId>java-mojang-api</artifactId>
-            <version>master-97bc9add82-1</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.commonmark</groupId>
-            <artifactId>commonmark</artifactId>
-            <version>0.17.0</version>
         </dependency>
     </dependencies>
 

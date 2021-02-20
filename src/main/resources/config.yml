@@ -1,0 +1,44 @@
+#########################
+# Discomc configuration #
+#########################
+
+discord:
+  # token of discord bot
+  botToken: 'token'
+  # bot server id
+  mainServerID: 0
+
+database:
+  # implemented sqlite, postgresql and mysql
+  sqlType: sqlite
+  host: localhost:5432
+  name: minecraft
+  user: admin
+  password: admin
+
+# function to connect discord and minecraft account
+connect:
+  enabled: true
+  # code will be deleted in this time of ticks
+  codeRemovingTime: 6000
+  maxCodeValue: 10000
+  # message will be deleted in this value of seconds
+  discordMessageDeleteTime: 5
+
+# function to retranslate console in specify text channel
+console:
+  enabled: true
+
+# chat between discord and minecraft
+multiChat:
+  enabled: true
+  # discord message convert to minecraft message
+  # using this pattern, where {0} - nickname
+  # {1} - visible content of message
+  minecraftMessagePattern: <{0}> {1}
+
+# IF YOU DO NOT KNOW WHAT IS THIS VALUES ARE DOING
+# DO NOT CHANGE THEM!
+advanced:
+  # in ticks
+  scheduleCommandsTimer: 20

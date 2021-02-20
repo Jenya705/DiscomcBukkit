@@ -1,67 +1,60 @@
 package space.cubicworld;
 
 import lombok.Data;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.text.MessageFormat;
 import java.util.Properties;
+import java.util.logging.Level;
 
 @Data
 public class DiscomcMessages {
 
-    private String prefix = "&7&l[&b&lDisco&a&lmc&7&l]";
-    private String codeNotNumber = "{0}, write number not text!";
-    private String codeNotExist = "{0}, this code doesn't exist!";
-    private String connectSuccess = "{0}, successfully linked accounts!";
-    private String connectMessage = "Your code is {0}, write it in {1}";
-    private String connectSuccessInMinecraft = "You successfully connected!";
-    private String alreadyConnected = "You are already connected!";
-    private String alreadyWroteConnect = "You are already written connect command!";
-    private String connectDisabled = "Connect command disabled!";
-    private String notAllowedCommand = "You do not have permission to do this!";
-    private String reloaded = "Reloaded!";
+    private String connectSuccessDiscord = "{0}, You successfully connected";
+    private String connectFailedDiscord = "{0}, This code does not exist, did you make mistake?";
+    private String connectSuccessMinecraft = "You linked your account with &b{0}&r discord account";
+    private String connectTimeEndMinecraft = "&cCode deleted because of time";
+    private String connectRequestMinecraft = "Your code is &a{0}&r, write it in &b{1}";
+    private String connectAlreadyMinecraft = "You are already connected with &b{0}";
+    private String sqlExceptionDiscord = "{0}, Database services is not available! Report to administrators!";
+    private String sqlExceptionMinecraft = "Database services is not available! Report to administrators!";
 
-    public DiscomcMessages() throws IOException, IllegalAccessException {
-
-        DiscomcPlugin discomcPlugin = DiscomcPlugin.getInstance();
-        File messagesFile = new File(discomcPlugin.getDataFolder(), "messages.properties");
-        if (messagesFile.exists()) {
-            Properties properties = new Properties();
-            properties.load(new FileInputStream(messagesFile));
-            Field[] fields = getClass().getDeclaredFields();
-            for (Field field: fields){
-                String property = properties.getProperty(field.getName());
-                if (property == null) {
-                    properties.setProperty(field.getName(), (String) field.get(this));
-                }
-                property = property.replaceAll("&", Character.toString(ChatColor.COLOR_CHAR));
-                field.set(this, property);
+    public DiscomcMessages(File messagesFile){
+        try {
+            if (!messagesFile.exists()) {
+                messagesFile.createNewFile();
+                DiscomcPlugin.logger().warning("Messages file is not exist! Using default messages");
             }
-            properties.store(new FileWriter(messagesFile), "Discomc messages.");
+            loadMessages(messagesFile);
+        } catch (IOException e){
+            DiscomcPlugin.logger().log(Level.WARNING, "Can not load messages, using default messages:", e);
         }
-        else {
-            messagesFile.createNewFile();
-            Properties properties = new Properties();
-            Field[] fields = getClass().getDeclaredFields();
-            for (Field field: fields){
-                properties.setProperty(field.getName(), (String) field.get(this));
-            }
-            properties.store(new FileWriter(messagesFile), "Discomc messages.");
-        }
-
     }
 
-    public String getMessage(String msg, boolean prefixed, String... objects){
-        if (prefixed) {
-            if (prefix.length() == 0) return MessageFormat.format(msg, objects);
-            else return prefix + ChatColor.RESET + " " + MessageFormat.format(msg, objects);
+    private void loadMessages(File messagesFile) throws IOException {
+        Properties messagesProperties = new Properties();
+        messagesProperties.load(new FileInputStream(messagesFile));
+        setConnectSuccessDiscord(getProperty(messagesProperties, "connect.discord.success", getConnectSuccessDiscord()));
+        setConnectFailedDiscord(getProperty(messagesProperties, "connect.discord.failed", getConnectFailedDiscord()));
+        setConnectSuccessMinecraft(getProperty(messagesProperties, "connect.minecraft.success", getConnectSuccessMinecraft()));
+        setConnectTimeEndMinecraft(getProperty(messagesProperties, "connect.minecraft.time.end", getConnectTimeEndMinecraft()));
+        setConnectRequestMinecraft(getProperty(messagesProperties, "connect.minecraft.request", getConnectRequestMinecraft()));
+        setConnectAlreadyMinecraft(getProperty(messagesProperties, "connect.minecraft.already", getConnectAlreadyMinecraft()));
+        setSqlExceptionDiscord(getProperty(messagesProperties, "exception.discord.sql", getSqlExceptionDiscord()));
+        setSqlExceptionMinecraft(getProperty(messagesProperties, "exception.minecraft.sql", getSqlExceptionMinecraft()));
+        messagesProperties.store(new FileOutputStream(messagesFile), "Discomc-messages");
+    }
+
+    private String getProperty(Properties messageProperties, String key, String standard){
+        String property = messageProperties.getProperty(key);
+        if (property == null){
+            messageProperties.setProperty(key, standard);
+            return standard.replaceAll("&", Character.toString(ChatColor.COLOR_CHAR));
         }
-        return MessageFormat.format(msg, objects);
+        return property.replaceAll("&", Character.toString(ChatColor.COLOR_CHAR));
     }
 
 }
