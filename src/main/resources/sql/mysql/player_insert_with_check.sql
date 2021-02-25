@@ -1,0 +1,1 @@
+CALL player_insert_with_check(?, ?, ?);

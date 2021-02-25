@@ -1,30 +1,41 @@
 package space.cubicworld;
 
-import ch.jalu.configme.Comment;
-import ch.jalu.configme.SettingsHolder;
-import ch.jalu.configme.properties.BeanProperty;
-import ch.jalu.configme.properties.Property;
+import lombok.Data;
 
-public class DiscomcSave implements SettingsHolder {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
+import java.util.logging.Level;
 
-    @Comment({
-            "Channel id which will be present as console"
-    })
-    public static final Property<Long> CONSOLE_CHANNEL_ID =
-            new BeanProperty<>(Long.class, "channels.console", -1L);
+@Data
+public class DiscomcSave {
 
-    @Comment({
-            "Channel id which will receive codes from players"
-    })
-    public static final Property<Long> CONNECT_CHANNEL_ID =
-            new BeanProperty<>(Long.class, "channels.connect", -1L);
+    private long categoryChannelID;
+    private long multiChatChannelID;
+    private long connectChannelID;
+    private long consoleChannelID;
+    private String multiChatWebhookURL = "";
 
-    @Comment({
-            "Channel id which will receive and send chat events"
-    })
-    public static final Property<Long> CHAT_CHANNEL_ID =
-            new BeanProperty<>(Long.class, "channels.chat", -1L);
+    private DiscomcSave(){}
 
-    private DiscomcSave() { /* NOTHING */}
+    public static DiscomcSave of(File saveFile){
+        try {
+            return DiscomcPlugin.gson.fromJson(new FileReader(saveFile), DiscomcSave.class);
+        } catch(FileNotFoundException e){
+            DiscomcPlugin.logger().log(Level.SEVERE, String.format("File not found %s", saveFile.getName()), e);
+        }
+        return null;
+    }
+
+    public void save(File saveFile) {
+        try {
+            Files.write(saveFile.toPath(), DiscomcPlugin.gson.toJson(this).getBytes(), StandardOpenOption.WRITE);
+        } catch (IOException e){
+            DiscomcPlugin.logger().log(Level.SEVERE, "Can not save save file:", e);
+        }
+    }
 
 }

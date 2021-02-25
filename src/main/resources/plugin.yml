@@ -1,21 +1,34 @@
 name: Discomc
-version: 1.0.1-SNAPSHOT
+version: 1.0
 main: space.cubicworld.DiscomcPlugin
 author: Jenya705
-website: https://github.com/Jenya705
+website: https://github.com/Jenya705/Discomc
 commands:
-  connect:
-    description: Command to connect minecraft account and discord account
-    permission: discomc.connect
   discomc:
-    description: Discomc main command
+    permission: discomc.discomc
+    description: Main discomc command
+  connect:
+    permission: discomc.connect
+    description: Command to connect discord and minecraft accounts
 permissions:
   discomc.*:
     default: op
     children:
       discomc.connect: true
+      discomc.discomc: true
+      discomc.help: true
+      discomc.connectForce: true
+      discomc.userGet: true
       discomc.reload: true
   discomc.connect:
     default: true
+  discomc.discomc:
+    default: op
+  discomc.help:
+    default: op
+  discomc.forceConnect:
+    default: op
+  discomc.userGet:
+    default: op
   discomc.reload:
     default: op

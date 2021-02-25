@@ -1,0 +1,44 @@
+#########################
+# Discomc configuration #
+#########################
+
+discord:
+  # token of discord bot
+  botToken: ${discord.botToken}
+  # bot server id
+  mainServerID: ${discord.mainServerID}
+
+database:
+  # implemented sqlite, postgresql and mysql
+  sqlType: ${database.sqlType}
+  host: ${database.host}
+  name: ${database.name}
+  user: ${database.user}
+  password: ${database.password}
+
+# function to connect discord and minecraft account
+connect:
+  enabled: ${connect.enabled}
+  # code will be deleted in this time of ticks
+  codeRemovingTime: ${connect.codeRemovingTime}
+  maxCodeValue: ${connect.maxCodeValue}
+  # message will be deleted in this value of seconds
+  discordMessageDeleteTime: ${connect.discordMessageDeleteTime}
+
+# function to share console in specify text channel
+console:
+  enabled: ${console.enabled}
+
+# chat between discord and minecraft
+multiChat:
+  enabled: ${multiChat.enabled}
+  # discord message convert to minecraft message
+  # using this pattern, where {0} - nickname
+  # {1} - visible content of message
+  minecraftMessagePattern: ${multiChat.minecraftMessagePattern}
+
+# IF YOU DO NOT KNOW WHAT IS THIS VALUES ARE DOING
+# DO NOT CHANGE THEM!
+advanced:
+  # in ticks
+  scheduleCommandsTimer: ${advanced.scheduleCommandsTimer}

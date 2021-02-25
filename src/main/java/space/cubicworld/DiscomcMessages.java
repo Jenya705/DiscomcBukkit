@@ -1,67 +1,98 @@
 package space.cubicworld;
 
 import lombok.Data;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.text.MessageFormat;
 import java.util.Properties;
+import java.util.logging.Level;
 
 @Data
 public class DiscomcMessages {
 
-    private String prefix = "&7&l[&b&lDisco&a&lmc&7&l]";
-    private String codeNotNumber = "{0}, write number not text!";
-    private String codeNotExist = "{0}, this code doesn't exist!";
-    private String connectSuccess = "{0}, successfully linked accounts!";
-    private String connectMessage = "Your code is {0}, write it in {1}";
-    private String connectSuccessInMinecraft = "You successfully connected!";
-    private String alreadyConnected = "You are already connected!";
-    private String alreadyWroteConnect = "You are already written connect command!";
-    private String connectDisabled = "Connect command disabled!";
-    private String notAllowedCommand = "You do not have permission to do this!";
-    private String reloaded = "Reloaded!";
+    private String prefix = "[&bDisco&amc&r] ";
+    private String connectSuccessDiscord = "{0}, You successfully connected";
+    private String connectFailedDiscord = "{0}, This code does not exist, did you make mistake?";
+    private String connectSuccessMinecraft = "You linked your account with &b{0}&r discord account";
+    private String connectTimeEndMinecraft = "&cCode deleted because of time";
+    private String connectRequestMinecraft = "Your code is &a{0}&r, write it in &b{1}";
+    private String connectAlreadyMinecraft = "You are already connected with &b{0}";
+    private String connectForceIDIsNotNumber = "Discord id {0} is not a number!";
+    private String connectForceIOException = "IOException while executing command";
+    private String connectForcePlayerIsNotExists = "Premium player {0} is not exist";
+    private String connectForceSuccess = "You successfully connect &a{0}&r minecraft user with &b{1}&r discord user";
+    private String sqlExceptionDiscord = "{0}, Database services is not available! Report to administrators!";
+    private String sqlExceptionMinecraft = "Database services is not available! Report to administrators!";
+    private String helpFooter = "[&bDisco&amc&r help | Page {0}]";
+    private String helpElement = "| &e{0}&r - &7{1}&r";
+    private String helpNext = "--> Next page ]";
+    private String helpPrevious = "[ Previous page <--";
+    private String commandNotExist = "Command {0} does not exist!";
+    private String commandNotPermission = "You do not have permission for this command! Permission: {0}";
+    private String userGetInvalidIdentifier = "The identifier {0} is invalid";
+    private String userGetAccountsCount = "Found &6{0}&r accounts";
+    private String userGetDiscordIDMessage = "Discord id: &b{0}&r";
+    private String userGetMinecraftNicknameMessage = "Minecraft nickname: &a{0}&r";
+    private String userGetFooter = "&7(Click on nickname to take it)&r";
 
-    public DiscomcMessages() throws IOException, IllegalAccessException {
-
-        DiscomcPlugin discomcPlugin = DiscomcPlugin.getInstance();
-        File messagesFile = new File(discomcPlugin.getDataFolder(), "messages.properties");
-        if (messagesFile.exists()) {
-            Properties properties = new Properties();
-            properties.load(new FileInputStream(messagesFile));
-            Field[] fields = getClass().getDeclaredFields();
-            for (Field field: fields){
-                String property = properties.getProperty(field.getName());
-                if (property == null) {
-                    properties.setProperty(field.getName(), (String) field.get(this));
-                }
-                property = property.replaceAll("&", Character.toString(ChatColor.COLOR_CHAR));
-                field.set(this, property);
+    public DiscomcMessages(File messagesFile){
+        try {
+            if (!messagesFile.exists()) {
+                messagesFile.createNewFile();
+                DiscomcPlugin.logger().warning("Messages file is not exist! Using default messages");
             }
-            properties.store(new FileWriter(messagesFile), "Discomc messages.");
+            loadMessages(messagesFile);
+        } catch (IOException e){
+            DiscomcPlugin.logger().log(Level.WARNING, "Can not load messages, using default messages:", e);
         }
-        else {
-            messagesFile.createNewFile();
-            Properties properties = new Properties();
-            Field[] fields = getClass().getDeclaredFields();
-            for (Field field: fields){
-                properties.setProperty(field.getName(), (String) field.get(this));
-            }
-            properties.store(new FileWriter(messagesFile), "Discomc messages.");
-        }
-
     }
 
-    public String getMessage(String msg, boolean prefixed, String... objects){
-        if (prefixed) {
-            if (prefix.length() == 0) return MessageFormat.format(msg, objects);
-            else return prefix + ChatColor.RESET + " " + MessageFormat.format(msg, objects);
+    private void loadMessages(File messagesFile) throws IOException {
+        Properties messagesProperties = new Properties();
+        FileInputStream inputStream = new FileInputStream(messagesFile);
+        messagesProperties.load(inputStream);
+        inputStream.close();
+        setPrefix(getProperty(messagesProperties, "prefix", getPrefix(), false));
+        setConnectSuccessDiscord(getProperty(messagesProperties, "connect.discord.success", getConnectSuccessDiscord(), false));
+        setConnectFailedDiscord(getProperty(messagesProperties, "connect.discord.failed", getConnectFailedDiscord(), false));
+        setConnectSuccessMinecraft(getProperty(messagesProperties, "connect.minecraft.success", getConnectSuccessMinecraft(), true));
+        setConnectTimeEndMinecraft(getProperty(messagesProperties, "connect.minecraft.time.end", getConnectTimeEndMinecraft(), true));
+        setConnectRequestMinecraft(getProperty(messagesProperties, "connect.minecraft.request", getConnectRequestMinecraft(), true));
+        setConnectAlreadyMinecraft(getProperty(messagesProperties, "connect.minecraft.already", getConnectAlreadyMinecraft(), true));
+        setConnectForceIDIsNotNumber(getProperty(messagesProperties, "connect.force.idNotNumber", getConnectForceIDIsNotNumber(), true));
+        setConnectForceIOException(getProperty(messagesProperties, "connect.force.exception.io", getConnectForceIOException(), true));
+        setConnectForcePlayerIsNotExists(getProperty(messagesProperties, "connect.force.player.notExists", getConnectForcePlayerIsNotExists(), true));
+        setConnectForceSuccess(getProperty(messagesProperties, "connect.force.success", getConnectForceSuccess(), true));
+        setSqlExceptionDiscord(getProperty(messagesProperties, "exception.discord.sql", getSqlExceptionDiscord(), false));
+        setSqlExceptionMinecraft(getProperty(messagesProperties, "exception.minecraft.sql", getSqlExceptionMinecraft(), true));
+        setHelpFooter(getProperty(messagesProperties, "help.footer", getHelpFooter(), false));
+        setHelpElement(getProperty(messagesProperties, "help.element", getHelpElement(), false));
+        setHelpNext(getProperty(messagesProperties, "help.next", getHelpNext(), false));
+        setHelpPrevious(getProperty(messagesProperties, "help.previous", getHelpPrevious(), false));
+        setCommandNotExist(getProperty(messagesProperties, "command.exist.false", getCommandNotExist(), true));
+        setCommandNotPermission(getProperty(messagesProperties, "command.permission.false", getCommandNotPermission(), true));
+        setUserGetInvalidIdentifier(getProperty(messagesProperties, "userGet.identifier.invalid", getUserGetInvalidIdentifier(), true));
+        setUserGetAccountsCount(getProperty(messagesProperties, "userGet.account.count", getUserGetAccountsCount(), false));
+        setUserGetDiscordIDMessage(getProperty(messagesProperties, "userGet.account.discord", getUserGetDiscordIDMessage(), false));
+        setUserGetMinecraftNicknameMessage(getProperty(messagesProperties, "userGet.account.minecraft", getUserGetMinecraftNicknameMessage(), false));
+        setUserGetFooter(getProperty(messagesProperties, "userGet.footer", getUserGetFooter(), false));
+        FileOutputStream outputStream = new FileOutputStream(messagesFile);
+        messagesProperties.store(outputStream, "Discomc-messages");
+        outputStream.close();
+    }
+
+    private String getProperty(Properties messageProperties, String key, String standard, boolean prefixed){
+        String property = messageProperties.getProperty(key);
+        if (property == null){
+            messageProperties.setProperty(key, standard);
+            if (prefixed) return getPrefix() + standard.replaceAll("&", Character.toString(ChatColor.COLOR_CHAR));
+            else return standard.replace("&", Character.toString(ChatColor.COLOR_CHAR));
         }
-        return MessageFormat.format(msg, objects);
+        if (prefixed) return getPrefix() + property.replaceAll("&", Character.toString(ChatColor.COLOR_CHAR));
+        else return property.replaceAll("&", Character.toString(ChatColor.COLOR_CHAR));
     }
 
 }

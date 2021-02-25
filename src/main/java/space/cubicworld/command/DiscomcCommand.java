@@ -1,67 +1,88 @@
 package space.cubicworld.command;
 
-import space.cubicworld.command.admin.ReloadAdminCommand;
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabExecutor;
+import javafx.util.Pair;
+import lombok.Getter;
+import org.bukkit.command.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import space.cubicworld.DiscomcMessages;
 import space.cubicworld.DiscomcPlugin;
-import space.cubicworld.command.AdminCommand;
+import space.cubicworld.connect.ConnectForceCommand;
 
+import java.text.MessageFormat;
 import java.util.*;
+import java.util.logging.Level;
 
 public class DiscomcCommand implements CommandExecutor, TabExecutor {
 
-    private Map<String, AdminCommand> adminCommands = new HashMap<>();
+    public static final String DISCOMC_COMMAND = "discomc";
+
+    @Getter
+    private List<Pair<String, DiscomcAdminCommand>> commands;
 
     public DiscomcCommand(){
-        adminCommands.put("reload", new ReloadAdminCommand());
+        DiscomcPlugin discomcPlugin = DiscomcPlugin.getDiscomcPlugin();
+        PluginCommand command = discomcPlugin.getCommand(DISCOMC_COMMAND);
+        if (command == null) {
+            discomcPlugin.getLogger().log(Level.SEVERE, "Can not load discomc command! Disabling plugin!");
+            DiscomcPlugin.pluginEnabled(false);
+            return;
+        }
+        commands = new ArrayList<>();
+        putCommand("help", new HelpCommand());
+        putCommand("reload", new ReloadCommand());
+        putCommand("connectForce", new ConnectForceCommand());
+        putCommand("userGet", new UserGetCommand());
+        command.setExecutor(this);
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if (args.length == 0){
-            writeHelp(commandSender);
+        String commandName;
+        if (args.length == 0) commandName = "help";
+        else commandName = args[0];
+        DiscomcAdminCommand adminCommand = getCommand(commandName);
+        DiscomcMessages discomcMessages = DiscomcPlugin.getDiscomcPlugin().getDiscomcMessages();
+        if (adminCommand == null){
+            commandSender.sendMessage(MessageFormat.format(
+                    discomcMessages.getCommandNotExist(), commandName
+            ));
         }
-        else if (args.length >= 1){
-            AdminCommand adminCommand = adminCommands.getOrDefault(args[0], null);
-            if (adminCommand == null){
-                writeHelp(commandSender);
-            }
-            else {
-                if (!commandSender.hasPermission(adminCommand.getPermission())){
-                    DiscomcMessages discomcMessages = DiscomcPlugin.getInstance().getDiscomcMessages();
-                    commandSender.sendMessage(discomcMessages.getMessage(discomcMessages.getNotAllowedCommand(), true));
-                    writeHelp(commandSender);
-                    return true;
-                }
-                adminCommand.onCommand(commandSender, command, label, args);
-            }
+        else if (!commandSender.hasPermission(adminCommand.getPermission())){
+            commandSender.sendMessage(MessageFormat.format(
+                    discomcMessages.getCommandNotPermission(), adminCommand.getPermission()
+            ));
+        }
+        else {
+            return adminCommand.onCommand(commandSender, command, label, args);
         }
         return true;
     }
 
-    @Nullable
     @Override
-    public List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length <= 1) {
-            return new ArrayList<String>(adminCommands.keySet());
+            List<String> names = new ArrayList<>();
+            commands.forEach(it -> names.add(it.getKey()));
+            return names;
+        } else {
+            DiscomcAdminCommand discomcAdminCommand = getCommand(args[0]);
+            if (discomcAdminCommand == null) return Collections.singletonList("<Command is not exist>");
+            return discomcAdminCommand.onTabComplete(commandSender, command, label, args);
+        }
+    }
+
+    public DiscomcAdminCommand getCommand(String command){
+        for (Pair<String, DiscomcAdminCommand> pair: commands){
+            if (pair.getKey().equalsIgnoreCase(command)){
+                return pair.getValue();
+            }
         }
         return null;
     }
 
-    public void writeHelp(CommandSender commandSender){
-        commandSender.sendMessage("§bDisco§amc§r help");
-        for (Map.Entry<String, AdminCommand> entry: adminCommands.entrySet()){
-            AdminCommand adminCommand = entry.getValue();
-            commandSender.sendMessage(
-                    String.format("%s%s §r- %s", ChatColor.GOLD, adminCommand.getName(), adminCommand.getHelp())
-            );
-        }
+    public void putCommand(String name, DiscomcAdminCommand command){
+        commands.add(new Pair<>(name, command));
     }
 
 }

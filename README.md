@@ -1,10 +1,11 @@
 # Discomc
+[![Codemc](https://ci.codemc.io/buildStatus/icon?job=Jenya705%2FDiscomc)](https://ci.codemc.io/job/Jenya705/job/Discomc/lastBuild/)
 * [Bukkit Page](https://dev.bukkit.org/projects/discomc)
 * [Spigot Page](https://www.spigotmc.org/resources/discomc.88199/)
 # What is discomc?
 Discomc is a bukkit plugin to make bridge between discord and minecraft server. 
-The console, multi-chat, role giving, nickname changing and connect function.
-This project in development, report all bags to me
+The console, multi-chat and connect function.
+This project in development please note us if you found a bag in our discord
 # How to setup plugin?
 1. You need to make application on discord dev portal ([DiscordDevPortal](https://discord.com/developers/applications))
 2. Download plugin and grab it into plugins folder
@@ -17,36 +18,63 @@ This project in development, report all bags to me
 9. restart the server <br>
 Congratulations! You created discomc's bot.
 # config.yml
-* token - bot token
-* mainServerID - id of server where the bot will send all information
-* sql - settings of sql
-* creationCategoryID - id of category where the bot will create all channels
-* multiChat - the function of retranslating chat from minecraft to discord and discord to minecraft
-* multiChat.pattern - pattern of message from discord to minecraft {0} - nickname, {1} - content
-* multiChat.webhookURL - url of webhook using to send minecraft messages to discord
-* mutliChat.getPremiumUuids - if enabled the plugin will get premium uuid of player (for cracked servers) to receive avatars
-* connect - the function which connecting minecraft and discord account
-* connect.codeRemoveSeconds - when this time spended the code will deleted from list.
-* nicknameChange - the function which chaning the discord name 
-* nicknameChange.pattern - pattern of nickname changing {0} - discord nickname, {1} - minecraft nickname
-* console - retranslate all logs to discord text channel as messages and received all message from this channel like command
-* console.formatting - symbols like * will change to \*
-* roles - the function to give minecraft role if discord role gave
-# permissions
-* discomc.* - permission for all discomc commands (default is op)
-* discomc.connect - permission for connect command (default is true)
-* discomc.reload - permission for discomc reload command (default is op)
-# roles.json
-json file with schema ROLE: LONG ID DISCORD ROLE <br>
-for example: 
-``` json
+```yml
+#########################
+# Discomc configuration #
+#########################
+
+discord:
+  # token of discord bot
+  botToken: token
+  # bot server id
+  mainServerID: 0
+
+database:
+  # implemented sqlite, postgresql and mysql
+  sqlType: sqlite
+  host: localhost:5432
+  name: minecraft
+  user: postgres
+  password: admin
+
+# function to connect discord and minecraft account
+connect:
+  enabled: true
+  # code will be deleted in this time of ticks
+  codeRemovingTime: 6000
+  maxCodeValue: 10000
+  # message will be deleted in this value of seconds
+  discordMessageDeleteTime: 5
+
+# function to share console in specify text channel
+console:
+  enabled: true
+
+# chat between discord and minecraft
+multiChat:
+  enabled: true
+  # discord message convert to minecraft message
+  # using this pattern, where {0} - nickname
+  # {1} - visible content of message
+  minecraftMessagePattern: '<{0}> {1}'
+
+# IF YOU DO NOT KNOW WHAT IS THIS VALUES ARE DOING
+# DO NOT CHANGE THEM!
+advanced:
+  # in ticks
+  scheduleCommandsTimer: 20
+
+```
+# save.json
+```json
 {
- "admin": 1
+  "categoryChannelID": 0,
+  "multiChatChannelID": 0,
+  "connectChannelID": 0,
+  "consoleChannelID": 0,
+  "multiChatWebhookURL": ""
 }
 ```
-minecraft role admin equals role with id "1", when this role gives on discord server discomc will give admin role to player with connected discord id (if player not connected to discord, the role giving will be skipped)
 # thanks
 Thanks to lombok's developers for java code generator [Lombok](https://projectlombok.org/) <br>
 Thanks to JDA's developers for discord api [JDA](https://github.com/DV8FromTheWorld/JDA) <br>
-Thanks to ConfigMe's developers for settings api [ConfigMe](https://github.com/AuthMe/ConfigMe) <br>
-Thanks to JavaMojangApi's developers for api [MojangApi](https://github.com/SparklingComet/java-mojang-api) <br>
