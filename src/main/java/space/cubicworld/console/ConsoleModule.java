@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import net.dv8tion.jda.api.entities.TextChannel;
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.Logger;
 import org.bukkit.configuration.file.FileConfiguration;
 import space.cubicworld.DiscomcModule;
@@ -30,16 +29,15 @@ public class ConsoleModule implements DiscomcModule {
     public void load() {
         DiscomcPlugin discomcPlugin = DiscomcPlugin.getDiscomcPlugin();
         FileConfiguration fileConfiguration = discomcPlugin.getConfig();
-        setEnabled(fileConfiguration.getBoolean("console.enabled"));
-        if (!isEnabled()) return;
         setConfig(new ConsoleConfiguration(fileConfiguration));
-        Logger logger = (Logger) LogManager.getRootLogger();
-        logger.addAppender(new ConsoleAppender("Discomc Appender", null, null));
-        consoleMessages = new ArrayDeque<>();
+        setEnabled(getConfig().isEnabled());
     }
 
     @Override
     public void enable() {
+        Logger logger = (Logger) LogManager.getRootLogger();
+        logger.addAppender(new ConsoleAppender("Discomc Appender", null, null));
+        consoleMessages = new ArrayDeque<>();
         DiscomcPlugin discomcPlugin = DiscomcPlugin.getDiscomcPlugin();
         DiscordModule discordModule = discomcPlugin.getDiscordModule();
         DiscomcSave discomcSave = discomcPlugin.getDiscomcSave();

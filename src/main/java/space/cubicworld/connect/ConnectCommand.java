@@ -1,5 +1,6 @@
 package space.cubicworld.connect;
 
+import net.dv8tion.jda.api.entities.User;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -34,15 +35,17 @@ public class ConnectCommand implements CommandExecutor {
                 String connectChannelName = discordModule.getJda().
                         getTextChannelById(discomcSave.getConnectChannelID()).getName();
                 try {
-                    ResultSet result = databaseModule.query("SELECT * FROM dmc_players WHERE uuidMost = ? AND uuidLeast = ?",
+                    ResultSet result = databaseModule.query(databaseModule.getScriptStore().getPlayerSelectByUuidScript(),
                             player.getUniqueId().getMostSignificantBits(), player.getUniqueId().getLeastSignificantBits());
                     if (result.next()){
                         long userID = result.getLong("discordID");
-                        player.sendMessage(MessageFormat.format(
-                                discomcMessages.getConnectAlreadyMinecraft(), discordModule.getJda()
-                                    .retrieveUserById(userID).complete().getAsTag()
-                        ));
-                        return;
+                        User user = discordModule.getJda().retrieveUserById(userID).complete();
+                        if (user != null) {
+                            player.sendMessage(MessageFormat.format(
+                                    discomcMessages.getConnectAlreadyMinecraft(), user.getAsTag()
+                            ));
+                            return;
+                        }
                     }
                 } catch (SQLException e){
                     player.sendMessage(discomcMessages.getSqlExceptionMinecraft());
@@ -68,8 +71,9 @@ public class ConnectCommand implements CommandExecutor {
                 ));
                 int finalCode = code;
                 discomcPlugin.getServer().getScheduler().runTaskLaterAsynchronously(discomcPlugin, () -> {
-                    connectModule.getCodes().remove(finalCode);
-                    player.sendMessage(discomcMessages.getConnectTimeEndMinecraft());
+                    if (connectModule.getCodes().remove(finalCode) != null) {
+                        player.sendMessage(discomcMessages.getConnectTimeEndMinecraft());
+                    }
                 }, connectConfiguration.getCodeRemovingTime());
             });
             return true;

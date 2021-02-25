@@ -1,12 +1,12 @@
 package space.cubicworld.multichat;
 
 import club.minnced.discord.webhook.send.WebhookMessageBuilder;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import space.cubicworld.DiscomcPlugin;
-import space.cubicworld.DiscomcSave;
-import space.cubicworld.discord.DiscordModule;
+import space.cubicworld.DiscomcUtil;
 
 public class MultiChatMinecraftHandler implements Listener {
 
@@ -18,9 +18,17 @@ public class MultiChatMinecraftHandler implements Listener {
 
     public void broadcastMessage(AsyncPlayerChatEvent event){
         WebhookMessageBuilder messageBuilder = new WebhookMessageBuilder();
+        String uuidString;
+        if (Bukkit.getOnlineMode()) uuidString = event.getPlayer().getUniqueId().toString();
+        else {
+            uuidString = String.valueOf(DiscomcUtil.getUuidPlayer(event.getPlayer().getName()));
+            if (uuidString == null){
+                uuidString = "00000000-0000-0000-0000-000000000000"; // zero
+            }
+        }
         messageBuilder.setUsername(event.getPlayer().getDisplayName())
                 .setContent(event.getMessage())
-                .setAvatarUrl("https://crafatar.com/avatars/b31f5079c09d4979b02e2396e5fd9afb");
+                .setAvatarUrl(String.format("https://crafatar.com/avatars/%s?default=MHF_Steve&overlay", uuidString));
         DiscomcPlugin.getDiscomcPlugin().getMultiChatModule()
                 .getWebhookClient().send(messageBuilder.build());
     }

@@ -29,14 +29,13 @@ public class ConnectModule implements DiscomcModule {
     @Override
     public void load() {
         FileConfiguration fileConfiguration = DiscomcPlugin.getDiscomcPlugin().getConfig();
-        setEnabled(fileConfiguration.getBoolean("connect.enabled"));
-        if (!isEnabled()) return;
-        codes = new HashMap<>();
         setConfig(new ConnectConfiguration(fileConfiguration));
+        setEnabled(getConfig().isEnabled());
     }
 
     @Override
     public void enable() {
+        codes = new HashMap<>();
         DiscomcPlugin discomcPlugin = DiscomcPlugin.getDiscomcPlugin();
         PluginCommand connectCommand = discomcPlugin.getCommand(CONNECT_COMMAND);
         if (connectCommand != null){
@@ -57,7 +56,7 @@ public class ConnectModule implements DiscomcModule {
 
     @Override
     public void disable() {
-
+        /* NOTHING */
     }
 
     @Override
@@ -74,4 +73,7 @@ public class ConnectModule implements DiscomcModule {
     public String getDescription() {
         return "Module which link minecraft and discord accounts";
     }
+
+
+
 }

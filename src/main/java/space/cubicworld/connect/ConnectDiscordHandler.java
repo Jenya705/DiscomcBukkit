@@ -1,9 +1,6 @@
 package space.cubicworld.connect;
 
-import com.mysql.cj.protocol.Resultset;
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -49,7 +46,7 @@ public class ConnectDiscordHandler extends ListenerAdapter {
         try {
             Player player = connectModule.getCodes().getOrDefault(code, null);
             if (player != null){
-                databaseModule.update("INSERT INTO dmc_players (uuidMost, uuidLeast, discordID) VALUES (?, ?, ?)",
+                databaseModule.update(databaseModule.getScriptStore().getPlayerInsertScript(),
                         player.getUniqueId().getMostSignificantBits(), player.getUniqueId().getLeastSignificantBits(), author.getIdLong());
                 textChannel.sendMessage(MessageFormat.format(
                         discomcMessages.getConnectSuccessDiscord(), author.getAsMention()))

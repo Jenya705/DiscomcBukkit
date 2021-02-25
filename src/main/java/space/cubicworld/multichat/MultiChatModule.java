@@ -1,10 +1,8 @@
 package space.cubicworld.multichat;
 
 import club.minnced.discord.webhook.WebhookClient;
-import club.minnced.discord.webhook.WebhookClientBuilder;
 import lombok.Getter;
 import lombok.Setter;
-import net.dv8tion.jda.api.entities.Webhook;
 import org.bukkit.configuration.file.FileConfiguration;
 import space.cubicworld.DiscomcModule;
 import space.cubicworld.DiscomcPlugin;
@@ -20,14 +18,13 @@ public class MultiChatModule implements DiscomcModule {
 
     @Getter
     @Setter
-    private MultiChatConfiguration configuration;
+    private MultiChatConfiguration config;
 
     @Override
     public void load() {
         FileConfiguration config = DiscomcPlugin.getDiscomcPlugin().getConfig();
-        setEnabled(config.getBoolean("multiChat.enabled"));
-        if (!isEnabled()) return;
-        setConfiguration(new MultiChatConfiguration(config));
+        setConfig(new MultiChatConfiguration(config));
+        setEnabled(getConfig().isEnabled());
     }
 
     @Override

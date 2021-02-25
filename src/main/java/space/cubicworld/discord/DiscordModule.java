@@ -12,7 +12,6 @@ import space.cubicworld.DiscomcPlugin;
 import space.cubicworld.DiscomcSave;
 
 import javax.security.auth.login.LoginException;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.logging.Level;
 
@@ -26,6 +25,10 @@ public class DiscordModule implements DiscomcModule {
 
     @Override
     public void load() {
+        if (getJda() != null) {
+            DiscomcPlugin.logger().warning("Discord module can not be reload!");
+            return;
+        }
         try {
             setConfig(new DiscordConfiguration(DiscomcPlugin.getDiscomcPlugin().getConfig()));
             JDABuilder jdaBuilder = JDABuilder.createDefault(getConfig().getToken());
@@ -33,7 +36,6 @@ public class DiscordModule implements DiscomcModule {
             jda.awaitReady();
             DiscomcSave discomcSave = DiscomcPlugin.getDiscomcPlugin().getDiscomcSave();
             if (discomcSave.getCategoryChannelID() == 0){
-                DiscomcPlugin.logger().info(String.valueOf(getConfig().getMainServerID()));
                 Guild mainGuild = getJda().getGuildById(getConfig().getMainServerID());
                 discomcSave.setCategoryChannelID(mainGuild
                         .createCategory("discomc-category")

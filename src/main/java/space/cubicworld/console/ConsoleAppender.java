@@ -36,7 +36,8 @@ public class ConsoleAppender extends AbstractAppender {
                 case '`':
                 case '|':
                 case '\\':
-                    messageBuilder.append("\\");
+                    messageBuilder.append("\\").append(ch);
+                    break;
                 default:
                     messageBuilder.append(ch);
                     break;

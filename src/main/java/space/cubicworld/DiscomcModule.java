@@ -14,4 +14,9 @@ public interface DiscomcModule {
 
     String getDescription();
 
+    /**
+     * @return DiscomcConfig instance if this class is not discomc class, returns null
+     */
+    DiscomcConfig getConfig();
+
 }

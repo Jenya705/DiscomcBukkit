@@ -21,7 +21,7 @@ public class MultiChatDiscordHandler extends ListenerAdapter {
 
     public String buildMessage(User user, String content){
         return MessageFormat.format(
-                DiscomcPlugin.getDiscomcPlugin().getMultiChatModule().getConfiguration().getMinecraftMessagePattern(),
+                DiscomcPlugin.getDiscomcPlugin().getMultiChatModule().getConfig().getMinecraftMessagePattern(),
                 user.getName(), content
         );
     }
