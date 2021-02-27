@@ -1,5 +1,7 @@
 # Discomc
 [![Codemc](https://ci.codemc.io/buildStatus/icon?job=Jenya705%2FDiscomc)](https://ci.codemc.io/job/Jenya705/job/Discomc/lastBuild/)
+[![Servers](https://img.shields.io/bstats/servers/10416)](https://bstats.org/plugin/bukkit/Discomc/10416)
+[![Players](https://img.shields.io/bstats/players/10416)](https://bstats.org/plugin/bukkit/Discomc/10416)
 * [Bukkit Page](https://dev.bukkit.org/projects/discomc)
 * [Spigot Page](https://www.spigotmc.org/resources/discomc.88199/)
 # What is discomc?
