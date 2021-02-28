@@ -77,8 +77,7 @@ public class DiscomcUtil {
         DiscomcUtil discomcUtil = DiscomcPlugin.getDiscomcPlugin().getDiscomcUtil();
         OfflinePlayer player = discomcUtil.getCachedPlayers().getOrDefault(discordID, null);
         if (player == null){
-            ConnectModule connectModule = DiscomcPlugin.getDiscomcPlugin().getConnectModule();
-            UUID playerUUID = connectModule.getUUID(discordID);
+            UUID playerUUID = ConnectModule.getUUID(discordID);
             if (playerUUID != null){
                 player = Bukkit.getOfflinePlayer(playerUUID);
                 discomcUtil.getCachedPlayers().put(discordID, player);
