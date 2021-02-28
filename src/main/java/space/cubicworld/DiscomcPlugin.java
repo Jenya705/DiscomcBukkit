@@ -59,6 +59,7 @@ public class DiscomcPlugin extends JavaPlugin {
 
     public void loadSettings(){
         try {
+            if (!getDataFolder().exists()) getDataFolder().mkdirs();
             //createConfigIfNotExist();
             createSaveIfNotExist();
         }
@@ -67,9 +68,13 @@ public class DiscomcPlugin extends JavaPlugin {
             setEnabled(false);
         }
 
-        discomcMessages = new DiscomcMessages(new File(getDataFolder(), "messages.properties"));
-        discomcSave = DiscomcSave.of(new File(getDataFolder(), "save.json"));
-        if (discomcSave != null) discomcSave.save(new File(getDataFolder(), "save.json"));
+        try {
+            discomcMessages = new DiscomcMessages(new File(getDataFolder(), "messages.properties"));
+            discomcSave = DiscomcSave.of(new File(getDataFolder(), "save.json"));
+            if (discomcSave != null) discomcSave.save(new File(getDataFolder(), "save.json"));
+        } catch (Exception e){
+            logger().log(Level.SEVERE, "Exception:", e);
+        }
 
     }
 
