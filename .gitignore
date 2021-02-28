@@ -1,5 +1,1 @@
-
-*.class
-target
-.gradle
-.project
+target/

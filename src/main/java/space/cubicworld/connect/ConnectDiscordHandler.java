@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.requests.restaction.MessageAction;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import space.cubicworld.DiscomcMessages;
@@ -36,38 +37,54 @@ public class ConnectDiscordHandler extends ListenerAdapter {
         try {
             code = Integer.parseInt(message.getContentRaw());
         } catch (NumberFormatException e){
-            textChannel.sendMessage(MessageFormat.format(
-                    discomcMessages.getConnectFailedDiscord(), author.getAsMention()))
-                    .delay(connectConfiguration.getDiscordMessageDeleteTime(), TimeUnit.SECONDS)
-                    .queue( it -> it.delete().queue());
+            MessageAction action = textChannel.sendMessage(MessageFormat.format(
+                    discomcMessages.getConnectFailedDiscord(), author.getAsMention()));
+            if (connectModule.getConfig().getDiscordMessageDeleteTime() != -1){
+                action.delay(5, TimeUnit.SECONDS)
+                        .queue(it -> it.delete().queue());
+            }
+            else {
+                action.queue();
+            }
             return;
         }
         DatabaseModule databaseModule = discomcPlugin.getDatabaseModule();
-        try {
-            Player player = connectModule.getCodes().getOrDefault(code, null);
-            if (player != null){
-                databaseModule.update(databaseModule.getScriptStore().getPlayerInsertScript(),
-                        player.getUniqueId().getMostSignificantBits(), player.getUniqueId().getLeastSignificantBits(), author.getIdLong());
-                textChannel.sendMessage(MessageFormat.format(
-                        discomcMessages.getConnectSuccessDiscord(), author.getAsMention()))
-                        .delay(5, TimeUnit.SECONDS)
-                        .queue(it -> it.delete().queue());
+        Player player = connectModule.getCodes().getOrDefault(code, null);
+        if (player != null){
+            boolean success = ConnectModule.insertPlayer(player.getUniqueId(), author.getIdLong());
+            if (success) {
+                connectModule.getCodes().remove(code);
+                MessageAction action = textChannel.sendMessage(MessageFormat.format(
+                        discomcMessages.getConnectSuccessDiscord(), author.getAsMention()));
+                if (connectModule.getConfig().getDiscordMessageDeleteTime() != -1) {
+                    action.delay(5, TimeUnit.SECONDS)
+                            .queue(it -> it.delete().queue());
+                } else {
+                    action.queue();
+                }
                 player.sendMessage(MessageFormat.format(
                         discomcMessages.getConnectSuccessMinecraft(), author.getAsTag()
                 ));
             }
             else {
-                textChannel.sendMessage(MessageFormat.format(
-                        discomcMessages.getConnectFailedDiscord(), author.getAsMention()))
-                        .delay(5, TimeUnit.SECONDS)
+                MessageAction action = textChannel.sendMessage(MessageFormat.format(
+                        discomcMessages.getSqlExceptionDiscord(), author.getAsMention()));
+                if (connectModule.getConfig().getDiscordMessageDeleteTime() != -1){
+                    action.delay(5, TimeUnit.SECONDS)
+                            .queue(it -> it.delete().queue());
+                }
+            }
+        }
+        else {
+            MessageAction action = textChannel.sendMessage(MessageFormat.format(
+                    discomcMessages.getConnectFailedDiscord(), author.getAsMention()));
+            if (connectModule.getConfig().getDiscordMessageDeleteTime() != -1){
+                action.delay(5, TimeUnit.SECONDS)
                         .queue(it -> it.delete().queue());
             }
-        } catch (SQLException e){
-            textChannel.sendMessage(MessageFormat.format(
-                    discomcMessages.getSqlExceptionDiscord(), author.getAsMention()))
-                    .delay(connectConfiguration.getDiscordMessageDeleteTime(), TimeUnit.SECONDS)
-                    .queue(it -> it.delete().queue());
-            discomcPlugin.getLogger().log(Level.SEVERE, "SQL exception while trying to handle player code:", e);
+            else {
+                action.queue();
+            }
         }
     }
 }

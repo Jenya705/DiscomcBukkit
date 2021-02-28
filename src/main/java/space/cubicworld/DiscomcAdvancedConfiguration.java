@@ -9,6 +9,7 @@ import java.util.Map;
 public class DiscomcAdvancedConfiguration implements DiscomcConfig{
 
     private int scheduleCommandsTimer = 20;
+    private int cachedPlayersClearTimer = 6000; // 5 minutes
 
     public DiscomcAdvancedConfiguration(FileConfiguration config){
         load(config);
@@ -17,10 +18,12 @@ public class DiscomcAdvancedConfiguration implements DiscomcConfig{
     @Override
     public void load(FileConfiguration config) {
         setScheduleCommandsTimer(config.getInt("advanced.scheduleCommandsTimer", getScheduleCommandsTimer()));
+        setCachedPlayersClearTimer(config.getInt("advanced.cachedPlayersClearTimer", getCachedPlayersClearTimer()));
     }
 
     @Override
     public void save(Map<String, String> placeholders) {
         DiscomcConfig.put(placeholders, "advanced.scheduleCommandsTimer", getScheduleCommandsTimer());
+        DiscomcConfig.put(placeholders, "advanced.cachedPlayersClearTimer", getCachedPlayersClearTimer());
     }
 }

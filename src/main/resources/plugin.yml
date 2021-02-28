@@ -1,8 +1,9 @@
 name: Discomc
-version: 1.0
+version: 1.1
 main: space.cubicworld.DiscomcPlugin
 author: Jenya705
 website: https://github.com/Jenya705/Discomc
+description: Make strong bridge between discord and minecraft servers!
 commands:
   discomc:
     permission: discomc.discomc
@@ -10,17 +11,31 @@ commands:
   connect:
     permission: discomc.connect
     description: Command to connect discord and minecraft accounts
+  disconnect:
+    permission: discomc.disconnect
+    description: Command to disconnect discord and minecraft accounts
 permissions:
   discomc.*:
     default: op
     children:
       discomc.connect: true
+      discomc.disconnect: true
       discomc.discomc: true
       discomc.help: true
       discomc.connectForce: true
       discomc.userGet: true
       discomc.reload: true
+      discomc.shortcut: true
+      discomc.module.*: true
+  discomc.module.*:
+    default: op
+    children:
+      discomc.module.help: true
+      discomc.module.reload: true
+      discomc.module: true
   discomc.connect:
+    default: true
+  discomc.disconnect:
     default: true
   discomc.discomc:
     default: op
@@ -31,4 +46,12 @@ permissions:
   discomc.userGet:
     default: op
   discomc.reload:
+    default: op
+  discomc.shortcut:
+    default: op
+  discomc.module:
+    default: op
+  discomc.module.info:
+    default: op
+  discomc.module.reload:
     default: op

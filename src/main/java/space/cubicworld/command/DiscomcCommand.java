@@ -33,6 +33,7 @@ public class DiscomcCommand implements CommandExecutor, TabExecutor {
         putCommand("reload", new ReloadCommand());
         putCommand("connectForce", new ConnectForceCommand());
         putCommand("userGet", new UserGetCommand());
+        putCommand("module", new ModuleCommand());
         command.setExecutor(this);
     }
 

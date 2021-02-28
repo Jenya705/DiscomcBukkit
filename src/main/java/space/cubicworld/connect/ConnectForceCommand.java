@@ -1,5 +1,7 @@
 package space.cubicworld.connect;
 
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
@@ -56,16 +58,19 @@ public class ConnectForceCommand extends DiscomcAdminCommand {
                     ));
                     return;
                 }
-                try {
-                    // value ignored because it needed
-                    databaseModule.update(databaseModule.getScriptStore().getPlayerInsertWithCheckScript(),
-                            playerUUID.getMostSignificantBits(), playerUUID.getLeastSignificantBits(), discordId);
+                boolean success = ConnectModule.upsertPlayer(playerUUID, discordId);
+                if (success) {
+                    DiscomcUtil discomcUtil = discomcPlugin.getDiscomcUtil();
+                    if (discomcUtil.getCachedPlayers().containsKey(discordId)) {
+                        OfflinePlayer player = Bukkit.getOfflinePlayer(playerUUID);
+                        discomcUtil.getCachedPlayers().put(discordId, player);
+                    }
                     commandSender.sendMessage(MessageFormat.format(
                             discomcMessages.getConnectForceSuccess(), minecraftNickname, discordIdNotParsed
                     ));
-                } catch (SQLException sqlException) {
+                }
+                else {
                     commandSender.sendMessage(discomcMessages.getSqlExceptionMinecraft());
-                    discomcPlugin.getLogger().log(Level.SEVERE, "Can not use connectForce because of an exception:", sqlException);
                 }
             });
             return true;

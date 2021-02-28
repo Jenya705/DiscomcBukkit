@@ -1,22 +1,22 @@
 package space.cubicworld;
 
-import com.google.gson.annotations.SerializedName;
+import javafx.util.Pair;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.command.CommandSender;
 import org.shanerx.mojang.Mojang;
+import space.cubicworld.connect.ConnectModule;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.UUID;
+import java.util.*;
 
 @Getter
 public class DiscomcUtil {
 
-    private Deque<String> scheduledCommands;
+    private Deque<Pair<CommandSender, String>> scheduledCommands;
+    private Map<Long, OfflinePlayer> cachedPlayers;
 
     private final Mojang mojangApi;
 
@@ -24,6 +24,7 @@ public class DiscomcUtil {
     private DiscomcAdvancedConfiguration config;
 
     public DiscomcUtil(){
+        cachedPlayers = new HashMap<>();
         mojangApi = new Mojang().connect();
         scheduledCommands = new ArrayDeque<>();
         DiscomcPlugin discomcPlugin = DiscomcPlugin.getDiscomcPlugin();
@@ -34,9 +35,12 @@ public class DiscomcUtil {
         DiscomcPlugin discomcPlugin = DiscomcPlugin.getDiscomcPlugin();
         discomcPlugin.getServer().getScheduler().runTaskTimer(discomcPlugin, () -> {
             while (scheduledCommands.peek() != null){
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), scheduledCommands.pop());
+                Pair<CommandSender, String> scheduledCommand = scheduledCommands.pop();
+                Bukkit.dispatchCommand(scheduledCommand.getKey(), scheduledCommand.getValue());
             }
         }, getConfig().getScheduleCommandsTimer(), getConfig().getScheduleCommandsTimer());
+        discomcPlugin.getServer().getScheduler().runTaskTimerAsynchronously(discomcPlugin, () -> cachedPlayers.clear(),
+                getConfig().getCachedPlayersClearTimer(), getConfig().getCachedPlayersClearTimer());
     }
 
     public static UUID getUuidPlayer(String playerNickname){
@@ -61,8 +65,29 @@ public class DiscomcUtil {
     }
 
     public static void scheduleCommand(String command){
+        scheduleCommand(Bukkit.getConsoleSender(), command);
+    }
+
+    public static void scheduleCommand(CommandSender commandSender, String command){
         DiscomcPlugin.getDiscomcPlugin().getDiscomcUtil()
-                .scheduledCommands.add(command);
+                .scheduledCommands.add(new Pair<>(commandSender, command));
+    }
+
+    public static OfflinePlayer getPlayer(long discordID){
+        DiscomcUtil discomcUtil = DiscomcPlugin.getDiscomcPlugin().getDiscomcUtil();
+        OfflinePlayer player = discomcUtil.getCachedPlayers().getOrDefault(discordID, null);
+        if (player == null){
+            ConnectModule connectModule = DiscomcPlugin.getDiscomcPlugin().getConnectModule();
+            UUID playerUUID = connectModule.getUUID(discordID);
+            if (playerUUID != null){
+                player = Bukkit.getOfflinePlayer(playerUUID);
+                discomcUtil.getCachedPlayers().put(discordID, player);
+            }
+            else {
+                return null;
+            }
+        }
+        return player;
     }
 
 }

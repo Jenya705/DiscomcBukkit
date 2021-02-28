@@ -9,14 +9,17 @@ import org.bukkit.configuration.file.FileConfiguration;
 import space.cubicworld.DiscomcModule;
 import space.cubicworld.DiscomcPlugin;
 import space.cubicworld.DiscomcSave;
+import space.cubicworld.database.DatabaseModule;
 import space.cubicworld.discord.DiscordModule;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.UUID;
+import java.util.logging.Level;
 
 public class ConsoleModule implements DiscomcModule {
-
-    private boolean enabled;
 
     @Getter
     @Setter
@@ -30,7 +33,6 @@ public class ConsoleModule implements DiscomcModule {
         DiscomcPlugin discomcPlugin = DiscomcPlugin.getDiscomcPlugin();
         FileConfiguration fileConfiguration = discomcPlugin.getConfig();
         setConfig(new ConsoleConfiguration(fileConfiguration));
-        setEnabled(getConfig().isEnabled());
     }
 
     @Override
@@ -70,12 +72,12 @@ public class ConsoleModule implements DiscomcModule {
 
     @Override
     public boolean isEnabled() {
-        return enabled;
+        return getConfig().isEnabled();
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+        getConfig().setEnabled(enabled);
     }
 
     @Override

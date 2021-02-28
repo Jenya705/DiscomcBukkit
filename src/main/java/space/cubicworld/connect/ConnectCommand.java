@@ -34,47 +34,45 @@ public class ConnectCommand implements CommandExecutor {
                 DatabaseModule databaseModule = discomcPlugin.getDatabaseModule();
                 String connectChannelName = discordModule.getJda().
                         getTextChannelById(discomcSave.getConnectChannelID()).getName();
-                try {
-                    ResultSet result = databaseModule.query(databaseModule.getScriptStore().getPlayerSelectByUuidScript(),
-                            player.getUniqueId().getMostSignificantBits(), player.getUniqueId().getLeastSignificantBits());
-                    if (result.next()){
-                        long userID = result.getLong("discordID");
-                        User user = discordModule.getJda().retrieveUserById(userID).complete();
-                        if (user != null) {
+                Long userID = ConnectModule.getDiscordId(player.getUniqueId());
+                if (userID == null){
+                    for (Map.Entry<Integer, Player> entry : connectModule.getCodes().entrySet()){
+                        if (entry.getValue().equals(player)){
                             player.sendMessage(MessageFormat.format(
-                                    discomcMessages.getConnectAlreadyMinecraft(), user.getAsTag()
+                                    discomcMessages.getConnectRequestMinecraft(), Integer.toString(entry.getKey()), connectChannelName
                             ));
                             return;
                         }
                     }
-                } catch (SQLException e){
+                    ConnectConfiguration connectConfiguration = connectModule.getConfig();
+                    int code;
+                    do {
+                        code = DiscomcPlugin.random.nextInt(connectConfiguration.getMaxCodeValue());
+                    } while (connectModule.getCodes().containsKey(code));
+                    connectModule.getCodes().put(code, player);
+                    player.sendMessage(MessageFormat.format(
+                            discomcMessages.getConnectRequestMinecraft(), Integer.toString(code), connectChannelName
+                    ));
+                    int finalCode = code;
+                    if (connectConfiguration.getCodeRemovingTime() != -1) {
+                        discomcPlugin.getServer().getScheduler().runTaskLaterAsynchronously(discomcPlugin, () -> {
+                            if (connectModule.getCodes().remove(finalCode) != null) {
+                                player.sendMessage(discomcMessages.getConnectTimeEndMinecraft());
+                            }
+                        }, connectConfiguration.getCodeRemovingTime());
+                    }
+                }
+                else if (userID == -1){
                     player.sendMessage(discomcMessages.getSqlExceptionMinecraft());
-                    discomcPlugin.getLogger().log(Level.SEVERE, "Exception while trying to check for player linked:", e);
-                    return;
                 }
-                for (Map.Entry<Integer, Player> entry : connectModule.getCodes().entrySet()){
-                    if (entry.getValue().equals(player)){
+                else {
+                    User user = discordModule.getJda().retrieveUserById(userID).complete();
+                    if (user != null) {
                         player.sendMessage(MessageFormat.format(
-                            discomcMessages.getConnectRequestMinecraft(), entry.getKey(), connectChannelName
+                                discomcMessages.getConnectAlreadyMinecraft(), user.getAsTag()
                         ));
-                        return;
                     }
                 }
-                ConnectConfiguration connectConfiguration = connectModule.getConfig();
-                int code;
-                do {
-                    code = DiscomcPlugin.random.nextInt(connectConfiguration.getMaxCodeValue());
-                } while (connectModule.getCodes().containsKey(code));
-                connectModule.getCodes().put(code, player);
-                player.sendMessage(MessageFormat.format(
-                        discomcMessages.getConnectRequestMinecraft(), Integer.toString(code), connectChannelName
-                ));
-                int finalCode = code;
-                discomcPlugin.getServer().getScheduler().runTaskLaterAsynchronously(discomcPlugin, () -> {
-                    if (connectModule.getCodes().remove(finalCode) != null) {
-                        player.sendMessage(discomcMessages.getConnectTimeEndMinecraft());
-                    }
-                }, connectConfiguration.getCodeRemovingTime());
             });
             return true;
         }

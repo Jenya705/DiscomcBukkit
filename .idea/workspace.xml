@@ -14,39 +14,51 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d440a71-bd63-46bd-92a1-e52d139dd68f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sql/player_insert_with_check.sql" afterDir="false" />
+    <list default="true" id="9aab9672-eb16-49bd-9b15-d15768b06b74" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Discomc.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/Discomc_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Discomc_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcAdvancedConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcAdvancedConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcMessages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcSave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcSave.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/DiscomcCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/DiscomcCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/ReloadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/ReloadCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectDiscordHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectDiscordHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectForceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectForceCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/ConsoleAppender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/ConsoleAppender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/ConsoleConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/ConsoleConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/ConsoleModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/ConsoleModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/database/DatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/database/DatabaseConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/database/DatabaseScriptStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/database/DatabaseScriptStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatDiscordHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatDiscordHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatMinecraftHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatMinecraftHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config-template.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config-template.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config-template.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/setup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql/setup.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +68,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="AnnotationType" />
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -81,86 +82,29 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1mxntuVYOb1OggJXZAc1owocND6" />
+  <component name="ProjectId" id="1oyguflsaHXVRN7Agyra1l7r6KZ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/sql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BufferServers/yatopia_test/plugins" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jenya\Documents\CubicWorld\Discomc\src\main\resources\sql" />
-    </key>
-    <key name="MoveInnerDialog.RECENTS_KEY">
-      <recent name="space.cubicworld.handler" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jenya\Documents\CubicWorld\Discomc\src\main\resources\sql\postgresql" />
-      <recent name="C:\Users\jenya\Documents\CubicWorld\Discomc\bukkit-helper\src" />
-      <recent name="C:\Users\jenya\Documents\CubicWorld\Discomc\spigot" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8d440a71-bd63-46bd-92a1-e52d139dd68f" name="Default Changelist" comment="" />
-      <created>1610444333201</created>
+      <changelist id="9aab9672-eb16-49bd-9b15-d15768b06b74" name="Default Changelist" comment="" />
+      <created>1614264470334</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1610444333201</updated>
-      <workItem from="1611148678716" duration="210000" />
-      <workItem from="1611148908080" duration="13488000" />
-      <workItem from="1611166860961" duration="8005000" />
-      <workItem from="1611176435357" duration="1232000" />
-      <workItem from="1611249181425" duration="97000" />
-      <workItem from="1611249293382" duration="759000" />
-      <workItem from="1611250072863" duration="239000" />
-      <workItem from="1611250327312" duration="204000" />
-      <workItem from="1611250544463" duration="2806000" />
-      <workItem from="1611253387415" duration="126000" />
-      <workItem from="1611253526610" duration="1935000" />
-      <workItem from="1611326843265" duration="3469000" />
-      <workItem from="1611333761807" duration="3742000" />
-      <workItem from="1611337551524" duration="1494000" />
-      <workItem from="1611339070320" duration="11505000" />
-      <workItem from="1611385263842" duration="6677000" />
-      <workItem from="1611394986801" duration="18285000" />
-      <workItem from="1611478108247" duration="1900000" />
-      <workItem from="1611480849155" duration="5111000" />
-      <workItem from="1611584559194" duration="615000" />
-      <workItem from="1611594292132" duration="9593000" />
+      <updated>1614264470334</updated>
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -175,45 +119,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="586" y="198" key="#Inspections" timestamp="1613590755055">
+    <state x="765" y="226" width="1016" height="587" key="#com.intellij.ide.util.MemberChooser" timestamp="1614513749329">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="586" y="198" key="#Inspections/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613590755055" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1614253774755">
+    <state x="765" y="226" width="1016" height="587" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614513749329" />
+    <state x="441" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614449529827">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614253774755" />
-    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1613572496354">
+    <state x="441" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614449529827" />
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1614270539714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="743" y="389" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613572496354" />
-    <state x="473" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614180533029">
+    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614270539714" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1614270548479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="473" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614180533029" />
-    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1614254537629">
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614270548479" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1614440475529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="261" key="FileChooserDialogImpl/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614254537629" />
-    <state x="540" y="263" key="IDE.errors.dialog" timestamp="1613772493007">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="540" y="263" key="IDE.errors.dialog/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613772493007" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1614007414379">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614007414379" />
-    <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1614205792279">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614205792279" />
-    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1613942252192">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1613942252192" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1614205657444">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614205657444" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.-766.2560.1400/-1920.0.1920.1160@0.0.1920.1040" timestamp="1614440475529" />
   </component>
 </project>

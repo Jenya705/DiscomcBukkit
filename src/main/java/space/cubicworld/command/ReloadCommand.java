@@ -18,16 +18,10 @@ public class ReloadCommand extends DiscomcAdminCommand{
 
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
-        DiscomcPlugin.getDiscomcPlugin().loadSettings();
-        ModuleStore.getModules().forEach((name, module) -> {
-            try {
-                DiscomcPlugin.logger().info(String.format("Reloading %s module", name));
-                module.load();
-            } catch(Exception e){
-                DiscomcPlugin.logger().log(Level.WARNING, String.format("Disabling %s module:", name), e);
-                module.setEnabled(false);
-            }
-        });
+        DiscomcPlugin discomcPlugin = DiscomcPlugin.getDiscomcPlugin();
+        discomcPlugin.onDisable();
+        discomcPlugin.onLoad();
+        discomcPlugin.onEnable();
         return true;
     }
 

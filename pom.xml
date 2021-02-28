@@ -6,7 +6,7 @@
 
     <groupId>space.cubicworld</groupId>
     <artifactId>discomc</artifactId>
-    <version>1.0-RELEASE</version>
+    <version>1.1</version>
 
     <build>
 
@@ -150,6 +150,17 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
             <version>1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.MilkBowl</groupId>
+            <artifactId>VaultAPI</artifactId>
+            <version>1.7</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
         </dependency>
     </dependencies>
 

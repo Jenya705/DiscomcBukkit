@@ -10,10 +10,5 @@
         <module name="Discomc" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="bukkit-helper" target="8" />
-      <module name="discomc-core" target="1.8" />
-      <module name="discomc-spigot" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -37,6 +37,20 @@ public class DiscomcMessages {
     private String userGetDiscordIDMessage = "Discord id: &b{0}&r";
     private String userGetMinecraftNicknameMessage = "Minecraft nickname: &a{0}&r";
     private String userGetFooter = "&7(Click on nickname to take it)&r";
+    private String shortcutCommandNotExist = "{0}, command is not exist";
+    private String shortcutNeedToBeConnected = "{0}, you need to be connected to do this";
+    private String moduleCommandListPageIsNotNumber = "Page is a number, but {0} is not a number";
+    private String moduleListHeader = "Discomc Modules:";
+    private String moduleListElement = "&6{0}&r module - {1} {2}●";
+    private String moduleListFooter = "&7(Click on some module to take it)&r";
+    private String moduleReloadSuccess = "&aReload success&r";
+    private String moduleReloadFailed = "&cReload Failed, check console for information&r";
+    private String moduleInfo = "&6{0}&r {1}●&r - {2}";
+    private String disconnectConfirm = "&c&lWARNING: &r&6This command disconnect your discord account " +
+            "from minecraft account! To confirm type command again";
+    private String disconnectSuccess = "You successfully disconnect";
+    private String disconnectNotConnected = "You are not connected";
+    private String recoverMessage = "If you lose access to your minecraft account press on {0}";
 
     public DiscomcMessages(File messagesFile){
         try {
@@ -79,6 +93,19 @@ public class DiscomcMessages {
         setUserGetDiscordIDMessage(getProperty(messagesProperties, "userGet.account.discord", getUserGetDiscordIDMessage(), false));
         setUserGetMinecraftNicknameMessage(getProperty(messagesProperties, "userGet.account.minecraft", getUserGetMinecraftNicknameMessage(), false));
         setUserGetFooter(getProperty(messagesProperties, "userGet.footer", getUserGetFooter(), false));
+        setShortcutCommandNotExist(getProperty(messagesProperties, "shortcut.command.exist.false", getShortcutCommandNotExist(), false));
+        setShortcutNeedToBeConnected(getProperty(messagesProperties, "shortcut.connected.false", getShortcutNeedToBeConnected(), false));
+        setModuleCommandListPageIsNotNumber(getProperty(messagesProperties, "module.list.pageNotNumber", getModuleCommandListPageIsNotNumber(), true));
+        setModuleListHeader(getProperty(messagesProperties, "module.list.header", getModuleListHeader(), false));
+        setModuleListElement(getProperty(messagesProperties, "module.list.element", getModuleListElement(), false));
+        setModuleListFooter(getProperty(messagesProperties, "module.list.footer", getModuleListFooter(), false));
+        setModuleReloadFailed(getProperty(messagesProperties, "module.reload.failed", getModuleReloadFailed(), true));
+        setModuleReloadSuccess(getProperty(messagesProperties, "module.reload.success", getModuleReloadSuccess(), true));
+        setModuleInfo(getProperty(messagesProperties, "module.info", getModuleInfo(), true));
+        setDisconnectConfirm(getProperty(messagesProperties, "disconnect.confirm", getDisconnectConfirm(), true));
+        setDisconnectSuccess(getProperty(messagesProperties, "disconnect.success", getDisconnectSuccess(), true));
+        setDisconnectNotConnected(getProperty(messagesProperties, "disconnect.connected.false", getDisconnectNotConnected(), true));
+        setRecoverMessage(getProperty(messagesProperties, "recover.message", getRecoverMessage(), false));
         FileOutputStream outputStream = new FileOutputStream(messagesFile);
         messagesProperties.store(outputStream, "Discomc-messages");
         outputStream.close();

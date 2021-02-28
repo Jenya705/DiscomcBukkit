@@ -11,8 +11,6 @@ import space.cubicworld.discord.DiscordModule;
 
 public class MultiChatModule implements DiscomcModule {
 
-    private boolean enabled;
-
     @Getter
     private WebhookClient webhookClient;
 
@@ -24,7 +22,6 @@ public class MultiChatModule implements DiscomcModule {
     public void load() {
         FileConfiguration config = DiscomcPlugin.getDiscomcPlugin().getConfig();
         setConfig(new MultiChatConfiguration(config));
-        setEnabled(getConfig().isEnabled());
     }
 
     @Override
@@ -54,12 +51,12 @@ public class MultiChatModule implements DiscomcModule {
 
     @Override
     public boolean isEnabled() {
-        return enabled;
+        return getConfig().isEnabled();
     }
 
     @Override
     public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+        getConfig().setEnabled(enabled);
     }
 
     @Override

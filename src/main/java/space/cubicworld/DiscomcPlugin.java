@@ -3,10 +3,10 @@ package space.cubicworld;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.Getter;
+import net.dv8tion.jda.api.entities.MessageActivity;
 import org.apache.commons.lang.text.StrSubstitutor;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
-import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.plugin.InvalidPluginException;
 import org.bukkit.plugin.java.JavaPlugin;
 import space.cubicworld.command.DiscomcCommand;
@@ -15,6 +15,7 @@ import space.cubicworld.console.ConsoleModule;
 import space.cubicworld.database.DatabaseModule;
 import space.cubicworld.discord.DiscordModule;
 import space.cubicworld.multichat.MultiChatModule;
+import space.cubicworld.shortcut.ShortcutModule;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -36,17 +37,20 @@ public class DiscomcPlugin extends JavaPlugin {
     @Getter
     private static DiscomcPlugin discomcPlugin;
 
+    private DiscomcVaultHook vaultHook;
     private DiscomcSave discomcSave;
     private DiscomcMessages discomcMessages;
     private DiscomcUtil discomcUtil;
 
     private DiscomcCommand discomcCommand;
+    private DiscomcDefaultConfiguration defaultConfiguration;
 
     private MultiChatModule multiChatModule;
     private DiscordModule discordModule;
     private DatabaseModule databaseModule;
     private ConnectModule connectModule;
     private ConsoleModule consoleModule;
+    private ShortcutModule shortcutModule;
 
     public DiscomcPlugin() throws InvalidPluginException {
         if (discomcPlugin != null) throw new InvalidPluginException("Plugin constructor called twice!");
@@ -86,7 +90,9 @@ public class DiscomcPlugin extends JavaPlugin {
         multiChatModule.getConfig().save(placeholders);
         consoleModule.getConfig().save(placeholders);
         connectModule.getConfig().save(placeholders);
+        shortcutModule.getConfig().save(placeholders);
         discomcUtil.getConfig().save(placeholders);
+        defaultConfiguration.save(placeholders);
 
         String endConfig = StrSubstitutor.replace(defaultConfig, placeholders);
 
@@ -108,11 +114,13 @@ public class DiscomcPlugin extends JavaPlugin {
         loadSettings();
 
         // vanilla modules start
+        defaultConfiguration = new DiscomcDefaultConfiguration(getConfig());
         discordModule = new DiscordModule();
         databaseModule = new DatabaseModule();
         multiChatModule = new MultiChatModule();
         connectModule = new ConnectModule();
         consoleModule = new ConsoleModule();
+        shortcutModule = new ShortcutModule();
         discomcUtil = new DiscomcUtil();
 
         ModuleStore.putModule("database", databaseModule);
@@ -120,6 +128,7 @@ public class DiscomcPlugin extends JavaPlugin {
         ModuleStore.putModule("multiChat", multiChatModule);
         ModuleStore.putModule("connect", connectModule);
         ModuleStore.putModule("console", consoleModule);
+        ModuleStore.putModule("shortcut", shortcutModule);
         // vanilla modules end
 
         ModuleStore.getModules().forEach((name, module) -> {
@@ -144,6 +153,7 @@ public class DiscomcPlugin extends JavaPlugin {
 
         // enabling discomc utils
         discomcUtil.enable();
+        vaultHook = new DiscomcVaultHook();
 
         try {
             Metrics metrics = new Metrics(this, PLUGIN_METRICS_ID);

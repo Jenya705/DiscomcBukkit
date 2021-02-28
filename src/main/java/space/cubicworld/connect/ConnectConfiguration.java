@@ -14,6 +14,12 @@ public class ConnectConfiguration implements DiscomcConfig {
     private int discordMessageDeleteTime = 5;
     private boolean enabled = true;
 
+    // disconnect start
+    private boolean disconnectEnabled = true;
+    private boolean disconnectConfirm = true;
+    private int disconnectTimeConfirm = 3000;
+    // disconnect end
+
     public ConnectConfiguration(FileConfiguration config){
         load(config);
     }
@@ -24,6 +30,12 @@ public class ConnectConfiguration implements DiscomcConfig {
         setMaxCodeValue(config.getInt("connect.maxCodeValue", getMaxCodeValue()));
         setDiscordMessageDeleteTime(config.getInt("connect.discordMessageDeleteTime", getDiscordMessageDeleteTime()));
         setEnabled(config.getBoolean("connect.enabled", isEnabled()));
+
+        // disconnect start
+        setDisconnectEnabled(config.getBoolean("disconnect.enabled", isDisconnectEnabled()));
+        setDisconnectConfirm(config.getBoolean("disconnect.confirm", isDisconnectConfirm()));
+        setDisconnectTimeConfirm(config.getInt("disconnect.timeConfirm", getDisconnectTimeConfirm()));
+        // disconnect end
     }
 
     @Override
@@ -32,5 +44,11 @@ public class ConnectConfiguration implements DiscomcConfig {
         DiscomcConfig.put(placeholders, "connect.maxCodeValue", getMaxCodeValue());
         DiscomcConfig.put(placeholders, "connect.discordMessageDeleteTime", getDiscordMessageDeleteTime());
         DiscomcConfig.put(placeholders, "connect.enabled", isEnabled());
+
+        // disconnect start
+        DiscomcConfig.put(placeholders, "disconnect.enabled", isDisconnectEnabled());
+        DiscomcConfig.put(placeholders, "disconnect.confirm", isDisconnectConfirm());
+        DiscomcConfig.put(placeholders, "disconnect.timeConfirm", getDisconnectTimeConfirm());
+        // disconnect end
     }
 }

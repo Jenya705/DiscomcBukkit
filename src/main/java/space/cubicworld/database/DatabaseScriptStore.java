@@ -14,6 +14,7 @@ public class DatabaseScriptStore {
     private String playerSelectByUuidScript;
     private String playerSelectByDiscordIDScript;
     private String playerInsertWithCheckScript;
+    private String playerDeleteByUuidScript;
 
     public DatabaseScriptStore(){
         loadScriptsFor(DiscomcPlugin.getDiscomcPlugin().getDatabaseModule().getConfig().getSqlType());
@@ -27,6 +28,7 @@ public class DatabaseScriptStore {
             playerSelectByUuidScript = loadScript("player_select_uuid.sql", loweredSqlType);
             playerSelectByDiscordIDScript = loadScript("player_select_discordid.sql", loweredSqlType);
             playerInsertWithCheckScript = loadScript("player_insert_with_check.sql", loweredSqlType);
+            playerDeleteByUuidScript = loadScript("player_delete_uuid.sql", loweredSqlType);
         } catch (IOException e){
             DiscomcPlugin.logger().log(Level.SEVERE, String.format("Can not load sql script for %s, disabling plugin:", loweredSqlType), e);
             DiscomcPlugin.pluginEnabled(false);
