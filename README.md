@@ -6,7 +6,7 @@
 * [Spigot Page](https://www.spigotmc.org/resources/discomc.88199/)
 # What is discomc?
 Discomc is a bukkit plugin to make bridge between discord and minecraft server. 
-The console, multi-chat and connect function.
+The console, multi-chat, connect and shortcut commands function.
 This project in development please note us if you found a bag in our discord
 # How to setup plugin?
 1. You need to make application on discord dev portal ([DiscordDevPortal](https://discord.com/developers/applications))
@@ -20,10 +20,19 @@ This project in development please note us if you found a bag in our discord
 9. restart the server <br>
 Congratulations! You created discomc's bot.
 # config.yml
-```yml
+```yaml
 #########################
+#                       #
 # Discomc configuration #
+#                       #
 #########################
+
+# if player is not online his permissions is not loaded
+# so we need using for offline players vault
+# it can happens when command sender is some discord user
+# working only with vault plugin
+# FOR online players will be used bukkit permissions
+useVaultFeaturesForPermissions: true
 
 discord:
   # token of discord bot
@@ -59,12 +68,37 @@ multiChat:
   # using this pattern, where {0} - nickname
   # {1} - visible content of message
   minecraftMessagePattern: '<{0}> {1}'
+  # vault features like prefixes, suffixes and etc
+  # working only with vault plugin
+  vaultFeatures: true
+
+# function to make shortcuts to execute them like default bot commands
+# example: !clear - discord command
+# all commands needs to be set in shortcuts.json
+# or by command /discomc shortcut
+# or by shortcut command shortcut in discord
+shortcut:
+  enabled: true
+  # commands prefix
+  commandsPrefix: >
+  # in this time message will delete
+  # count in seconds
+  # -1 to disable
+  messageDeleteTime: 5
+  # response will delete in this seconds
+  # -1 to disable
+  responseDeleteTime: 20
+  # command will delete in this seconds
+  # -1 to disable
+  commandDeleteTime: -1
 
 # IF YOU DO NOT KNOW WHAT IS THIS VALUES ARE DOING
 # DO NOT CHANGE THEM!
 advanced:
   # in ticks
   scheduleCommandsTimer: 20
+  # in ticks
+  cachedPlayersClearTimer: 6000
 
 ```
 # save.json
@@ -77,6 +111,29 @@ advanced:
   "multiChatWebhookURL": ""
 }
 ```
+# permissions
+- discomc.connect - /connect command
+- discomc.disconnect - /disconnect command
+- discomc.discomc - /discomc command
+- discomc.help - /discomc help command
+- discomc.forceConnect - /discomc connectForce command
+- discomc.userGet - /discomc userGet command
+- discomc.reload - /discomc reload command
+- discomc.shortcut - /discomc shortcut command
+- discomc.module - /discomc module command
+- discomc.module.info - /discomc module info command
+- discomc.module.reload - /discomc module reload command
+# commands
+- /connect - command to link minecraft account with discord account
+- /disconnect - command to unlink minecraft account with discord account
+- /discomc - admin command
+- /discomc help %page% - write help with all admin commands
+- /discomc connectForce <minecraft nickname> <discord id or mention> - command to force link accounts
+- /discomc userGet - command to get value about user
+- /discomc reload - command to reload modules, better if you just restart the server
+- /discomc module - module commands
+- /discomc module %module name% info - write info about module, enabled and description
+- /discomc module %module name% reload - reload module, better if you just restart the server
 # thanks
 Thanks to lombok's developers for java code generator [Lombok](https://projectlombok.org/) <br>
 Thanks to JDA's developers for discord api [JDA](https://github.com/DV8FromTheWorld/JDA) <br>
