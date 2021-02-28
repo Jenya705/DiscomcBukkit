@@ -1,6 +1,5 @@
 package space.cubicworld;
 
-import javafx.util.Pair;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -8,6 +7,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.shanerx.mojang.Mojang;
 import space.cubicworld.connect.ConnectModule;
+import space.cubicworld.util.Pair;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;

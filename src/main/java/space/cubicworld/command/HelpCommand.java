@@ -1,6 +1,5 @@
 package space.cubicworld.command;
 
-import javafx.util.Pair;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.Command;
@@ -9,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import space.cubicworld.DiscomcMessages;
 import space.cubicworld.DiscomcPlugin;
+import space.cubicworld.util.Pair;
 
 import java.text.MessageFormat;
 import java.util.List;

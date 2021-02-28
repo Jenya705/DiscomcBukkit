@@ -1,6 +1,5 @@
 package space.cubicworld.command;
 
-import javafx.util.Pair;
 import lombok.Getter;
 import org.bukkit.command.*;
 import org.jetbrains.annotations.NotNull;
@@ -8,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 import space.cubicworld.DiscomcMessages;
 import space.cubicworld.DiscomcPlugin;
 import space.cubicworld.connect.ConnectForceCommand;
+import space.cubicworld.util.Pair;
 
 import java.text.MessageFormat;
 import java.util.*;
