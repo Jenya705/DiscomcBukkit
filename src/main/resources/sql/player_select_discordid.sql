@@ -1,1 +1,0 @@
-SELECT * FROM dmc_players WHERE discordID = ?;

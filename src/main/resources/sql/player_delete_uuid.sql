@@ -1,1 +1,0 @@
-DELETE FROM dmc_players WHERE uuidMost = ? AND uuidLeast = ?;

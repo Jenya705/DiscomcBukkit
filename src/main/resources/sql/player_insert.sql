@@ -1,1 +1,0 @@
-INSERT INTO dmc_players (uuidMost, uuidLeast, discordID) VALUES (?, ?, ?);

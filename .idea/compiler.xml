@@ -10,5 +10,8 @@
         <module name="Discomc" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Discomc" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
