@@ -15,11 +15,14 @@ public class YamlData implements SerializedData {
     private static final Yaml yaml = new Yaml();
 
     @Setter(AccessLevel.PROTECTED)
-    private Map<String, Object> data;
+    private Map<String, Object> data = new LinkedHashMap<>();
 
     @Override
     public void initialize(String data) {
         setData(yaml.load(data));
+        if (getData() == null) {
+            setData(new LinkedHashMap<>());
+        }
     }
 
     @Override

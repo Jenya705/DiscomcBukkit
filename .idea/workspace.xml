@@ -1,80 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Discomc" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9eee1fc0-9bbb-468e-b0d2-0f557b7ca1dd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/DataFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/DataType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/MultiDataFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/SerializedData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Discomc_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/Discomc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcAdvancedConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcCommandSender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcDefaultConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcMessages.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcPlugin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcSave.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/DiscomcVaultHook.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/ModuleStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/DiscomcAdminCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/DiscomcCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/HelpCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/ModuleCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/ReloadCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/command/UserGetCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectDiscordHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectForceCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/ConnectModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/connect/DisconnectCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/ConsoleAppender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/ConsoleConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/ConsoleDiscordHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/console/ConsoleModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/database/DatabaseConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/database/DatabaseModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/database/DatabaseScriptStore.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/discord/DiscordModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatDiscordHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatMinecraftHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/multichat/MultiChatModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/shortcut/ShortcutCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/shortcut/ShortcutConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/shortcut/ShortcutDiscordHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/shortcut/ShortcutModule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/space/cubicworld/util/Pair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config-template.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/util/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/util/ConfigsUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/mysql/player_insert_with_check.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/mysql/setup.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/player_delete_uuid.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/player_insert.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/player_insert_with_check.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/player_select_discordid.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/player_select_uuid.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/postgresql/player_insert_with_check.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/postgresql/setup.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/setup.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sqlite/player_insert_with_check.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql/sqlite/setup.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +61,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/github/jenya705" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
