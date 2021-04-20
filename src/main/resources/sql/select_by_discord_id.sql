@@ -1,0 +1,1 @@
+select * from dmc_players where discord_id = ?;

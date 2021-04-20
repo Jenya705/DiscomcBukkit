@@ -23,7 +23,7 @@ public class MultiChatMinecraftChatHandler implements Listener {
                             event.getPlayer().getUniqueId() :
                             discomc.getUuidFactory().getUUID(event.getPlayer().getName())))
                     .setContent(PlainComponentSerializer.plain().serialize(event.message()))
-            ).doOnError(it -> discomc.getLogger().log(Level.SEVERE, "[Discord4J] Webhook Exception:", it)).block()
+            ).doOnError(e -> discomc.getLogger().log(Level.SEVERE, "[Discord4J] Webhook Exception:", e)).block()
         );
     }
 

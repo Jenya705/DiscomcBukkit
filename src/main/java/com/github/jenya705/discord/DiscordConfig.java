@@ -2,6 +2,7 @@ package com.github.jenya705.discord;
 
 import com.github.jenya705.Discomc;
 import com.github.jenya705.DiscomcConfig;
+import com.github.jenya705.data.MinecraftConfigData;
 import com.github.jenya705.data.SerializedData;
 import lombok.Data;
 
@@ -29,7 +30,7 @@ public class DiscordConfig implements DiscomcConfig {
     }
 
     @Override
-    public void save(SerializedData data) {
+    public void save(SerializedData  data) {
         data.setObject("token", getToken());
         data.setObject("mainGuildID", getMainGuildID());
         data.setObject("mainCategoryID", getMainCategoryID());

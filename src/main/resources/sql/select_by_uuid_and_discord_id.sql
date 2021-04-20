@@ -1,0 +1,1 @@
+select 1 from dmc_players where uuid_most = ? and uuid_least = ? and discord_id = ?; 

@@ -10,14 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9eee1fc0-9bbb-468e-b0d2-0f557b7ca1dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/DiscomcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/DiscomcConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/util/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/util/ConfigsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatMessageCreateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatMessageCreateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatMinecraftChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatMinecraftChatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

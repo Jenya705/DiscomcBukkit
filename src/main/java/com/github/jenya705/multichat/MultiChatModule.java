@@ -61,7 +61,8 @@ public class MultiChatModule implements DiscomcModule {
         if (createMultiChatChannel) {
             TextChannel multiChatChannel = mainGuild.createTextChannel(it -> it
                     .setParentId(mainCategory.getId())
-                    .setName("discomc-multichat"))
+                    .setName("discomc-multichat")
+                    .setReason("Discomc MultiChat channel creation"))
                     .block();
             getConfig().setMultiChatChannelID(multiChatChannel.getId().asLong());
         }

@@ -1,16 +1,19 @@
 package com.github.jenya705.data;
 
+import com.github.jenya705.Discomc;
+import com.github.jenya705.util.ConfigsUtil;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.yaml.snakeyaml.Yaml;
+import sun.security.krb5.Config;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 @Getter
-public class YamlData implements SerializedData {
+public class YamlData implements SerializedData, MinecraftConfigData {
 
     private static final Yaml yaml = new Yaml();
 
@@ -227,4 +230,35 @@ public class YamlData implements SerializedData {
         getData().put((String) key, value);
 
     }
+
+    @Override
+    public String getMessage(Object key, boolean prefixed) {
+        if (prefixed) {
+            return ConfigsUtil.toColorizedMessage(getPrefix() + getString(key));
+        }
+        return ConfigsUtil.toColorizedMessage(getString(key));
+    }
+
+    @Override
+    public String getMessage(Object key, String defaultMessage, boolean prefixed) {
+        if (prefixed) {
+            return ConfigsUtil.toColorizedMessage(getPrefix() + getString(key, defaultMessage));
+        }
+        return ConfigsUtil.toColorizedMessage(getString(key, defaultMessage));
+    }
+
+    @Override
+    public void setMessage(Object key, String message, boolean prefixed) {
+        if (!prefixed) {
+            setObject(key, ConfigsUtil.fromColorizedMessage(message));
+        }
+        else {
+            setObject(key, ConfigsUtil.fromColorizedMessage(message.substring(getPrefix().length())));
+        }
+    }
+
+    private String getPrefix() {
+        return Discomc.getPlugin().getDefaultConfig().getPrefix();
+    }
+
 }

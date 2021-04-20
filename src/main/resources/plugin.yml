@@ -5,6 +5,18 @@ api-version: 1.16
 authors: [ Jenya705 ]
 description: Strong Bridge between discord and minecraft
 website: https://github.com/Jenya705/Discomc
+commands:
+  connect:
+    permission: discomc.connect
+    usage: /connect
+    description: Link your Discord and Minecraft accounts
 permissions:
+  discomc.*:
+    default: op
+    children:
+      discomc.message.discord: true
+      discomc.connect: true
   discomc.message.discord:
+    default: true
+  discomc.connect:
     default: true

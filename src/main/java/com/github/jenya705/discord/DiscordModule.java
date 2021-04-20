@@ -175,6 +175,8 @@ public class DiscordModule implements DiscomcModule {
 
     @Override
     public void disable() {
-        Discomc.getPlugin().getLogger().warning("[Discord] Can not disable discord module");
+        Discomc discomc = Discomc.getPlugin();
+        discomc.getLogger().severe("[Discord] Discord module disabled, disabling plugin");
+        discomc.getServer().getPluginManager().disablePlugin(discomc);
     }
 }

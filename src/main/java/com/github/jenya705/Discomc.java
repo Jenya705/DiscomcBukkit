@@ -1,8 +1,11 @@
 package com.github.jenya705;
 
+import com.github.jenya705.connect.ConnectModule;
 import com.github.jenya705.data.DataFactory;
+import com.github.jenya705.data.DataType;
 import com.github.jenya705.data.MultiDataFactory;
 import com.github.jenya705.data.SerializedData;
+import com.github.jenya705.database.DatabaseModule;
 import com.github.jenya705.discord.DiscordModule;
 import com.github.jenya705.multichat.MultiChatModule;
 import com.github.jenya705.scheduler.BukkitDiscomcScheduler;
@@ -35,12 +38,6 @@ public final class Discomc extends JavaPlugin {
     @Setter(AccessLevel.PRIVATE)
     private static Discomc plugin;
 
-    /**
-     * All private final fields is private because
-     * I want to make it not final so it can be changed
-     * in runtime, that is good i think
-     */
-
     private final DataFactory dataFactory = new MultiDataFactory();
     private final UUIDFactory uuidFactory = new MojangUUIDFactory();
     private final HeadURLFactory headURLFactory = new CrafatarHeadURLFactory();
@@ -48,8 +45,11 @@ public final class Discomc extends JavaPlugin {
 
     private SerializedData dataConfig;
     private Map<String, DiscomcModule> modules;
+    private DefaultConfig defaultConfig;
     private DiscordModule discordModule;
     private MultiChatModule multiChatModule;
+    private DatabaseModule databaseModule;
+    private ConnectModule connectModule;
 
     public Discomc() {}
 
@@ -63,10 +63,15 @@ public final class Discomc extends JavaPlugin {
         if (!configFile.exists()) {
             configFile.createNewFile();
         }
-        setDataConfig(getDataFactory().createData(configFile));
+        setDataConfig(getDataFactory().createData(configFile, DataType.YAML));
+        setDefaultConfig(new DefaultConfig());
+        getDefaultConfig().load(getDataConfig());
+        getDefaultConfig().save(getDataConfig());
         setModules(new HashMap<>());
         setDiscordModule(addModule(new DiscordModule(), "Discord"));
+        setDatabaseModule(addModule(new DatabaseModule(), "Database"));
         setMultiChatModule(addModule(new MultiChatModule(), "MultiChat"));
+        setConnectModule(addModule(new ConnectModule(), "Connect"));
         /* Loading modules */ getModules().forEach((name, module) -> {
             try {
                 module.onLoad();
