@@ -15,7 +15,8 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.MessageFormat;
-import java.util.Set;
+import java.util.Map;
+import java.util.UUID;
 
 public class ConnectCommand implements CommandExecutor {
 
@@ -33,16 +34,15 @@ public class ConnectCommand implements CommandExecutor {
                         Snowflake.of(playerConnectedAccount.getDiscordID())).block();
                 if (user != null) {
                     player.sendMessage(MessageFormat.format(
-                            connectModule.getConfig().getAlreadyConnected(),
+                            connectModule.getConfig().getAlreadyConnectedMinecraft(),
                             user.getUsername() + "#" + user.getDiscriminator()));
                 } else {
                     player.sendMessage(MessageFormat.format(
-                            connectModule.getConfig().getAlreadyConnected(),
+                            connectModule.getConfig().getAlreadyConnectedMinecraft(),
                             ""));
                 }
                 return;
             }
-            int code = connectModule.registerCode(player.getUniqueId());
             TextChannel connectChannel = (TextChannel) discordModule.getClient()
                     .getChannelById(Snowflake.of(connectModule.getConfig().getConnectChannelID()))
                     .filter(it -> it.getType() == Channel.Type.GUILD_TEXT)
@@ -50,6 +50,15 @@ public class ConnectCommand implements CommandExecutor {
             String connectChannelName;
             if (connectChannel != null) connectChannelName = connectChannel.getName();
             else connectChannelName = "INVALID";
+            for (Map.Entry<Integer, UUID> entry: connectModule.getCodes().entrySet()){
+                if (entry.getValue().equals(player.getUniqueId())) {
+                    player.sendMessage(MessageFormat.format(
+                            connectModule.getConfig().getConnectRequest(),
+                            Integer.toString(entry.getKey()), connectChannelName
+                    ));
+                }
+            }
+            int code = connectModule.registerCode(player.getUniqueId());
             player.sendMessage(MessageFormat.format(
                     connectModule.getConfig().getConnectRequest(),
                     Integer.toString(code), connectChannelName));

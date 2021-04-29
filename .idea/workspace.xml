@@ -10,18 +10,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9eee1fc0-9bbb-468e-b0d2-0f557b7ca1dd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/MinecraftCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/MinecraftCommandReTranslator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/TraditionalDiscordCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectKickHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/console/ConsoleDiscordSenderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/nickname/NicknameConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/nickname/NicknameModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/service/AsyncCommandsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/service/DiscomcService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/DefaultConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/DefaultConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/DiscomcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/DiscomcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discord4JFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discord4JFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectMessageCreateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectMessageCreateHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordModule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatMessageCreateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatMessageCreateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatMinecraftChatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatMinecraftChatHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/uuid/MojangUUIDFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/uuid/MojangUUIDFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/YamlDataTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/jenya705/YamlDataTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +45,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -47,6 +61,20 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/uuid/MojangUUIDFactory.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/console/ConsoleModule.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/console/ConsoleDiscordSenderService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/console/ConsoleConfig.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/console/ConsoleAppender.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/util/MessagesUtil.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/net/kyori/adventure-api/4.7.0/adventure-api-4.7.0-sources.jar!/net/kyori/adventure/text/Component.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/service/DiscomcService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MentionSerializer.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/service/AsyncCommandsService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/github/jenya705/console/ConsoleMessageCreateHandler.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -64,22 +92,56 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\jenya\Documents\CubicWorld\Discomc\src\main\java\com\github\jenya705" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.github.jenya705" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.YamlDataTest">
+  <component name="RunManager" selected="JUnit.StringCommandDataTest">
+    <configuration name="MentionSerializerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Discomc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.jenya705.discomc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.jenya705" />
+      <option name="MAIN_CLASS_NAME" value="com.github.jenya705.MentionSerializerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringCommandDataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Discomc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.jenya705.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.jenya705" />
+      <option name="MAIN_CLASS_NAME" value="com.github.jenya705.StringCommandDataTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="YamlDataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Discomc" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="YamlDataTest" />
+      <option name="PACKAGE_NAME" value="com.github.jenya705" />
+      <option name="MAIN_CLASS_NAME" value="com.github.jenya705.YamlDataTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -160,6 +222,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StringCommandDataTest" />
+        <item itemvalue="JUnit.MentionSerializerTest" />
         <item itemvalue="JUnit.YamlDataTest" />
       </list>
     </recent_temporary>

@@ -68,8 +68,9 @@ public class MultiChatModule implements DiscomcModule {
         }
         if (getConfig().isDiscordToMinecraft()) {
             discordModule.getClient().on(MessageCreateEvent.class)
-                    .filter(it -> it.getMessage().getChannelId().asLong() == getConfig().getMultiChatChannelID()
-                            && getConfig().isDiscordToMinecraft())
+                    .filter(it -> getConfig().isDiscordToMinecraft())
+                    .filter(it -> it.getMessage().getChannelId().asLong() == getConfig().getMultiChatChannelID())
+                    .filter(it -> it.getMessage().getAuthor().isPresent())
                     .subscribe(new MultiChatMessageCreateHandler(), error ->
                             discomc.getLogger().log(Level.SEVERE,
                                     "[Discord4J] MessageCreateEvent exception:", error));

@@ -1,30 +1,31 @@
-package com.github.jenya705;
+package com.github.jenya705.nickname;
 
+import com.github.jenya705.DiscomcConfig;
 import com.github.jenya705.data.MinecraftConfigData;
 import com.github.jenya705.data.SerializedData;
 import lombok.Data;
 
 @Data
-public class DefaultConfig implements DiscomcConfig {
+public class NicknameConfig implements DiscomcConfig {
 
-    private String prefix = "&8[&bDisco&amc&8] &r";
-    private int commandsExecutingTimer = 20;
+    private boolean enabled = true;
+    private String nicknamePattern = "{0} | {1}";
 
     @Override
     public void load(SerializedData data) {
         if (data instanceof MinecraftConfigData) {
             MinecraftConfigData minecraftConfigData = (MinecraftConfigData) data;
-            setPrefix(minecraftConfigData.getMessage("prefix", getPrefix(), false));
+            setNicknamePattern(minecraftConfigData.getMessage("nicknamePattern", getNicknamePattern(), false));
         }
-        setCommandsExecutingTimer(data.getInteger("commandsExecutingTimer", getCommandsExecutingTimer()));
+        setEnabled(data.getBoolean("enabled", isEnabled()));
     }
 
     @Override
     public void save(SerializedData data) {
+        data.setObject("enabled", isEnabled());
         if (data instanceof MinecraftConfigData) {
             MinecraftConfigData minecraftConfigData = (MinecraftConfigData) data;
-            minecraftConfigData.setMessage("prefix", getPrefix(), false);
+            minecraftConfigData.setMessage("nicknamePattern", getNicknamePattern(), false);
         }
-        data.setObject("commandsExecutingTimer", getCommandsExecutingTimer());
     }
 }

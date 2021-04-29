@@ -41,7 +41,6 @@ public class DiscordModule implements DiscomcModule {
             ConfigsUtil.saveConfig(getConfig(), "discord");
             return;
         }
-        discomc.getLogger().info("[Discord] Login");
         setClient(DiscordClientBuilder.create(getConfig().getToken()).build().login().block());
         getClient().updatePresence(createPresenceOnlineStatus(getConfig().getOnlineStatus(),
                 createActivity(getConfig().getActivityType(), getConfig().getActivityName(), getConfig().getActivityURL())))

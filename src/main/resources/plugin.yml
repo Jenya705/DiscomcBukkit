@@ -10,13 +10,20 @@ commands:
     permission: discomc.connect
     usage: /connect
     description: Link your Discord and Minecraft accounts
+  discomc:
+    permission: discomc.admin
+    usage: /discomc
+    description: Admin command for discomc plugin
 permissions:
   discomc.*:
     default: op
     children:
       discomc.message.discord: true
+      discomc.admin: true
       discomc.connect: true
   discomc.message.discord:
     default: true
   discomc.connect:
     default: true
+  discomc.admin:
+    default: op

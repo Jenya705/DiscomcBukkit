@@ -106,9 +106,9 @@
         </dependency>
         <!-- JavaMojangAPI -->
         <dependency>
-            <groupId>com.github.SparklingComet</groupId>
-            <artifactId>java-mojang-api</artifactId>
-            <version>master-97bc9add82-1</version>
+            <groupId>com.github.KevinPriv</groupId>
+            <artifactId>MojangAPI</artifactId>
+            <version>1.0</version>
         </dependency>
         <!-- AdventureMiniMessage -->
         <dependency>

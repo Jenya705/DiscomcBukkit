@@ -73,6 +73,10 @@ public class ConnectModule implements DiscomcModule {
                 .filter(it -> it.getMessage().getChannelId().asLong() == getConfig().getConnectChannelID())
                 .filter(it -> it.getMessage().getAuthor().isPresent() && !it.getMessage().getAuthor().get().isBot())
                 .subscribe(new ConnectMessageCreateHandler());
+        if (getConfig().isKickIfNotConnected()) {
+            discomc.getServer().getPluginManager().registerEvents(
+                    new ConnectKickHandler(), discomc);
+        }
         ConfigsUtil.saveConfig(getConfig(), "connect");
     }
 

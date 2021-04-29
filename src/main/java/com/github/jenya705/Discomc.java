@@ -1,6 +1,7 @@
 package com.github.jenya705;
 
 import com.github.jenya705.connect.ConnectModule;
+import com.github.jenya705.console.ConsoleModule;
 import com.github.jenya705.data.DataFactory;
 import com.github.jenya705.data.DataType;
 import com.github.jenya705.data.MultiDataFactory;
@@ -8,8 +9,11 @@ import com.github.jenya705.data.SerializedData;
 import com.github.jenya705.database.DatabaseModule;
 import com.github.jenya705.discord.DiscordModule;
 import com.github.jenya705.multichat.MultiChatModule;
+import com.github.jenya705.nickname.NicknameModule;
 import com.github.jenya705.scheduler.BukkitDiscomcScheduler;
 import com.github.jenya705.scheduler.DiscomcScheduler;
+import com.github.jenya705.service.AsyncCommandsService;
+import com.github.jenya705.service.DiscomcService;
 import com.github.jenya705.skin.CrafatarHeadURLFactory;
 import com.github.jenya705.skin.HeadURLFactory;
 import com.github.jenya705.uuid.MojangUUIDFactory;
@@ -38,20 +42,35 @@ public final class Discomc extends JavaPlugin {
     @Setter(AccessLevel.PRIVATE)
     private static Discomc plugin;
 
-    private final DataFactory dataFactory = new MultiDataFactory();
-    private final UUIDFactory uuidFactory = new MojangUUIDFactory();
-    private final HeadURLFactory headURLFactory = new CrafatarHeadURLFactory();
-    private final DiscomcScheduler scheduler = new BukkitDiscomcScheduler();
+    // Factories
+    private UUIDFactory uuidFactory;
+    private DataFactory dataFactory;
+    private HeadURLFactory headURLFactory;
+    private DiscomcScheduler scheduler;
 
+    // Config
     private SerializedData dataConfig;
-    private Map<String, DiscomcModule> modules;
     private DefaultConfig defaultConfig;
+
+    // Modules
+    private Map<String, DiscomcModule> modules;
     private DiscordModule discordModule;
     private MultiChatModule multiChatModule;
     private DatabaseModule databaseModule;
     private ConnectModule connectModule;
+    private ConsoleModule consoleModule;
+    private NicknameModule nicknameModule;
 
-    public Discomc() {}
+    // Services
+    private AsyncCommandsService asyncCommandsService;
+
+    @Override
+    public void onLoad() {
+        setUuidFactory(new MojangUUIDFactory());
+        setDataFactory(new MultiDataFactory());
+        setHeadURLFactory(new CrafatarHeadURLFactory());
+        setScheduler(new BukkitDiscomcScheduler());
+    }
 
     @SneakyThrows
     @Override
@@ -63,15 +82,21 @@ public final class Discomc extends JavaPlugin {
         if (!configFile.exists()) {
             configFile.createNewFile();
         }
+        // configs load
         setDataConfig(getDataFactory().createData(configFile, DataType.YAML));
         setDefaultConfig(new DefaultConfig());
         getDefaultConfig().load(getDataConfig());
         getDefaultConfig().save(getDataConfig());
+        // Creating service instances
+        setAsyncCommandsService(addService(new AsyncCommandsService()));
+        // Creating module instances
         setModules(new HashMap<>());
         setDiscordModule(addModule(new DiscordModule(), "Discord"));
         setDatabaseModule(addModule(new DatabaseModule(), "Database"));
         setMultiChatModule(addModule(new MultiChatModule(), "MultiChat"));
         setConnectModule(addModule(new ConnectModule(), "Connect"));
+        setConsoleModule(addModule(new ConsoleModule(), "Console"));
+        setNicknameModule(addModule(new NicknameModule(), "Nickname"));
         /* Loading modules */ getModules().forEach((name, module) -> {
             try {
                 module.onLoad();
@@ -107,9 +132,14 @@ public final class Discomc extends JavaPlugin {
         });
     }
 
-    private <T extends DiscomcModule> T addModule(T module, String name){
+    public <T extends DiscomcModule> T addModule(T module, String name){
         getModules().put(name, module);
         return module;
+    }
+
+    public <T extends DiscomcService> T addService(T instance) {
+        instance.setup();
+        return instance;
     }
 
     @SneakyThrows

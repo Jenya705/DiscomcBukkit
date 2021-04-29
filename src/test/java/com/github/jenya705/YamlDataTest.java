@@ -1,3 +1,5 @@
+package com.github.jenya705;
+
 import com.github.jenya705.data.DataFactory;
 import com.github.jenya705.data.DataType;
 import com.github.jenya705.data.MultiDataFactory;
