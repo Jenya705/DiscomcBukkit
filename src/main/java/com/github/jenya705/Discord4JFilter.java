@@ -24,14 +24,10 @@ public class Discord4JFilter implements Filter {
         if (!loggerName.startsWith("discord4j")) return Result.NEUTRAL;
         Discomc discomc = Discomc.getPlugin();
         if (throwable != null) {
-            if (level.intLevel() > Level.WARN.intLevel()) {
-                discomc.getLogger().log(LoggersUtil.toJUL(level), "[Discord4J] " + message, throwable);
-            }
+            discomc.getLogger().log(LoggersUtil.toJUL(level), "[Discord4J] " + message, throwable);
         }
         else {
-            if (level.intLevel() > Level.WARN.intLevel()) {
-                discomc.getLogger().log(LoggersUtil.toJUL(level), "[Discord4J] " + message);
-            }
+            discomc.getLogger().log(LoggersUtil.toJUL(level), "[Discord4J] " + message);
         }
         return Result.DENY;
     }

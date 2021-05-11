@@ -10,32 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9eee1fc0-9bbb-468e-b0d2-0f557b7ca1dd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/MinecraftCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/MinecraftCommandReTranslator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/TraditionalDiscordCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectKickHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/console/ConsoleDiscordSenderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/nickname/NicknameConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/nickname/NicknameModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/service/AsyncCommandsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/service/DiscomcService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/DefaultConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/DefaultConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discord4JFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discord4JFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectMessageCreateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectMessageCreateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/connect/ConnectModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/discord/DiscordModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatMessageCreateHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatMessageCreateHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/multichat/MultiChatModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/uuid/MojangUUIDFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/uuid/MojangUUIDFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/YamlDataTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/github/jenya705/YamlDataTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/SlashDiscordCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/SlashDiscordCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/discomc/DiscomcUserCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/argument/CommandArgument.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/argument/VanillaCommandArgument.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/data/CommandData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/data/SchemeCommandData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/data/StringCommandData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/data/StringCommandParseResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/scheme/CommandDataScheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/scheme/VanillaCommandDataScheme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/util/ConfigsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/util/ConfigsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/jenya705/StringCommandDataTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>

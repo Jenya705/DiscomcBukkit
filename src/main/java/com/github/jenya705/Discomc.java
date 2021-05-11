@@ -1,5 +1,6 @@
 package com.github.jenya705;
 
+import com.github.jenya705.command.CommandModule;
 import com.github.jenya705.connect.ConnectModule;
 import com.github.jenya705.console.ConsoleModule;
 import com.github.jenya705.data.DataFactory;
@@ -60,6 +61,7 @@ public final class Discomc extends JavaPlugin {
     private ConnectModule connectModule;
     private ConsoleModule consoleModule;
     private NicknameModule nicknameModule;
+    private CommandModule commandModule;
 
     // Services
     private AsyncCommandsService asyncCommandsService;
@@ -97,6 +99,7 @@ public final class Discomc extends JavaPlugin {
         setConnectModule(addModule(new ConnectModule(), "Connect"));
         setConsoleModule(addModule(new ConsoleModule(), "Console"));
         setNicknameModule(addModule(new NicknameModule(), "Nickname"));
+        setCommandModule(addModule(new CommandModule(), "Command"));
         /* Loading modules */ getModules().forEach((name, module) -> {
             try {
                 module.onLoad();
@@ -105,7 +108,6 @@ public final class Discomc extends JavaPlugin {
                 module.disable();
             }
         });
-        saveConfig();
         /* Enabling modules */ getModules().forEach((name, module) -> {
             try {
                 if (module.isEnabled()) {

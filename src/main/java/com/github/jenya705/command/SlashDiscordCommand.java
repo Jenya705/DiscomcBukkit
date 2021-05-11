@@ -1,9 +1,9 @@
 package com.github.jenya705.command;
 
-import discord4j.discordjson.json.ApplicationCommandInteractionData;
+import discord4j.core.object.command.ApplicationCommandInteraction;
 
 public interface SlashDiscordCommand {
 
-    void execute(ApplicationCommandInteractionData data);
+    String execute(ApplicationCommandInteraction data);
 
 }
