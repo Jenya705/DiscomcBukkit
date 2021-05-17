@@ -3,6 +3,8 @@ package com.github.jenya705.util;
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
 
+import java.util.List;
+
 @UtilityClass
 public class MessagesUtil {
 
@@ -26,6 +28,14 @@ public class MessagesUtil {
                     builder.append(currentChar);
                     break;
             }
+        }
+        return builder.toString();
+    }
+
+    public static <T> String listToString(List<T> list) {
+        StringBuilder builder = new StringBuilder();
+        for (T value: list) {
+            builder.append(value.toString()).append(" ");
         }
         return builder.toString();
     }

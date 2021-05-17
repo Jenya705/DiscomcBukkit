@@ -1,6 +1,7 @@
 package com.github.jenya705.command.parser;
 
 import com.github.jenya705.data.SerializedMapData;
+import com.github.jenya705.util.ArrayIterator;
 import com.github.jenya705.util.Pair;
 
 public class StringCommandData extends SchemeCommandData {
@@ -10,6 +11,12 @@ public class StringCommandData extends SchemeCommandData {
 
     public StringCommandData(CommandScheme scheme) {
         super(scheme);
+    }
+
+    public static StringCommandData create(CommandScheme scheme, ArrayIterator<String> args) {
+        StringCommandData data = new StringCommandData(scheme);
+        data.initialize(args.getArray(), args.getCurrent(), args.getArray().length);
+        return data;
     }
 
     @Override

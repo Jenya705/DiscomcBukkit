@@ -82,6 +82,16 @@
             <groupId>com.discord4j</groupId>
             <artifactId>discord4j-core</artifactId>
             <version>3.2.0-M2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.projectreactor.netty</groupId>
+                    <artifactId>reactor-netty</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.projectreactor.netty</groupId>
+                    <artifactId>reactor-netty-http</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- Lombok -->
         <dependency>
@@ -128,5 +138,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.23</version>
         </dependency>
+        <!-- Hints -->
+        <dependency>
+            <groupId>com.github.Jenya705</groupId>
+            <artifactId>Hints</artifactId>
+            <version>83125fb12c</version>
+        </dependency>
     </dependencies>
+
 </project>

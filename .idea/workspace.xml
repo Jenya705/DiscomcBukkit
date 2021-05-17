@@ -11,20 +11,27 @@
   <component name="ChangeListManager">
     <list default="true" id="9eee1fc0-9bbb-468e-b0d2-0f557b7ca1dd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discomc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discord4JFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/Discord4JFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/CommandConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/CommandConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/SlashDiscordCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/SlashDiscordCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/discomc/DiscomcUserCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/argument/CommandArgument.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/argument/VanillaCommandArgument.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/data/CommandData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/data/SchemeCommandData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/data/StringCommandData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/data/StringCommandParseResult.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/scheme/CommandDataScheme.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/scheme/VanillaCommandDataScheme.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/util/ConfigsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/util/ConfigsUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/github/jenya705/StringCommandDataTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/TraditionalDiscordCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/TraditionalDiscordCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/AbstractMultiCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/ImplMultiCommandChoice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/ImplMultiCommandDescription.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/ImplMultiCommandOption.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/MultiCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/MultiCommandChoice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/MultiCommandDescription.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/MultiCommandOption.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/MultiCommandOptionType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/MultiCommandSenderType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/application/ImplMultiApplicationFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/application/MultiApplicationOptionDataFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/multi/application/MultiApplicationRequestFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/StringCommandData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/command/parser/StringCommandData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/SerializedMapData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/SerializedMapData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/data/YamlData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/jenya705/util/MessagesUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/jenya705/util/MessagesUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,8 +89,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BufferServers/purpur_test/server.jar" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -96,7 +103,7 @@
       <recent name="com.github.jenya705" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StringCommandDataTest">
+  <component name="RunManager" selected="JAR Application.Debug Purpur 1.16.4">
     <configuration name="MentionSerializerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Discomc" />
       <extension name="coverage">
@@ -127,6 +134,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ValueTypeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Discomc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.github.jenya705.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.github.jenya705" />
+      <option name="MAIN_CLASS_NAME" value="com.github.jenya705.ValueTypeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="YamlDataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Discomc" />
       <option name="PACKAGE_NAME" value="com.github.jenya705" />
@@ -134,6 +156,18 @@
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Debug Purpur 1.16.4" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/../BufferServers/purpur_test/server.jar" />
+      <option name="VM_PARAMETERS" value="-Xms2G -Xmx6G" />
+      <option name="PROGRAM_PARAMETERS" value="-nogui" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\jenya\Documents\CubicWorld\BufferServers\purpur_test" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Discomc" />
+        </option>
       </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -209,8 +243,17 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="JAR Application.Debug Purpur 1.16.4" />
+      <item itemvalue="JUnit.MentionSerializerTest" />
+      <item itemvalue="JUnit.StringCommandDataTest" />
+      <item itemvalue="JUnit.ValueTypeTest" />
+      <item itemvalue="JUnit.YamlDataTest" />
+      <item itemvalue="Maven.Discomc build" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ValueTypeTest" />
         <item itemvalue="JUnit.StringCommandDataTest" />
         <item itemvalue="JUnit.MentionSerializerTest" />
         <item itemvalue="JUnit.YamlDataTest" />

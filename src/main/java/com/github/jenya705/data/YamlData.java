@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Getter
-public class YamlData extends SerializedMapData<String, Object> implements MinecraftConfigData {
+public class YamlData extends SerializedMapData<String, Object> {
 
     private static final Yaml yaml = new Yaml();
 
@@ -69,36 +69,6 @@ public class YamlData extends SerializedMapData<String, Object> implements Minec
     @Override
     public SerializedMapData createSelfInstance() {
         return new YamlData();
-    }
-
-    @Override
-    public String getMessage(Object key, boolean prefixed) {
-        if (prefixed) {
-            return ConfigsUtil.toColorizedMessage(getPrefix() + getString(key));
-        }
-        return ConfigsUtil.toColorizedMessage(getString(key));
-    }
-
-    @Override
-    public String getMessage(Object key, String defaultMessage, boolean prefixed) {
-        if (prefixed) {
-            return ConfigsUtil.toColorizedMessage(getPrefix() + getString(key, defaultMessage));
-        }
-        return ConfigsUtil.toColorizedMessage(getString(key, defaultMessage));
-    }
-
-    @Override
-    public void setMessage(Object key, String message, boolean prefixed) {
-        if (!prefixed) {
-            setObject(key, ConfigsUtil.fromColorizedMessage(message));
-        }
-        else {
-            setObject(key, ConfigsUtil.fromColorizedMessage(message.substring(getPrefix().length())));
-        }
-    }
-
-    private String getPrefix() {
-        return Discomc.getPlugin().getDefaultConfig().getPrefix();
     }
 
 }
