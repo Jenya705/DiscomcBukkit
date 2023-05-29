@@ -1,7 +1,6 @@
 package com.github.jenya705.util;
 
 import discord4j.common.util.Snowflake;
-import org.apache.commons.lang.math.NumberUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,8 +24,12 @@ public class MentionsUtil {
         if (matcher.find()) {
             return Snowflake.of(matcher.group(numGroup));
         }
-        if (checkForNumber && NumberUtils.isNumber(raw)) {
-            return Snowflake.of(raw);
+        if (checkForNumber) {
+            try {
+                return Snowflake.of(raw);
+            } catch (Exception e) {
+                return null;
+            }
         }
         return null;
     }

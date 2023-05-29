@@ -34,7 +34,8 @@ public class ConnectMessageCreateHandler implements Consumer<MessageCreateEvent>
             if (!users.isEmpty()) {
                 messageChannel.createMessage(MessageFormat.format(
                         connectModule.getConfig().getAlreadyConnectedDiscord(),
-                        author.getMention()))
+                        author.getMention()
+                        ))
                         .block().delete()
                         .block(Duration.ofSeconds(connectModule.getConfig().getDiscordMessageDeleteTime()));
                 message.delete().block();

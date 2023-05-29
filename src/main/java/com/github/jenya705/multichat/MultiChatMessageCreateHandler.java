@@ -8,9 +8,6 @@ import discord4j.core.object.entity.Member;
 import discord4j.core.object.entity.Message;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
-import net.kyori.adventure.text.minimessage.MiniMessage;
-import net.kyori.adventure.text.minimessage.markdown.DiscordFlavor;
-import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.Bukkit;
 
 import java.text.MessageFormat;
@@ -32,21 +29,15 @@ public class MultiChatMessageCreateHandler implements Consumer<MessageCreateEven
         if (multiChatModule.getConfig().isDiscordAttachments() && !message.getAttachments().isEmpty()) {
             stringMessage += "\n";
         }
-        Component componentMessage;
-        if (multiChatModule.getConfig().isDiscordMentions()) {
-            componentMessage = MiniMessage.markdown().parse(MiniMessage.withMarkdownFlavor(DiscordFlavor.get())
-                    .serialize(MentionSerializer.fromString(stringMessage)));
-        }
-        else {
-            componentMessage = Component.text(MiniMessage.withMarkdownFlavor(DiscordFlavor.get())
-                    .serialize(Component.text(stringMessage)));
-        }
-        for (Attachment attachment: message.getAttachments()) {
+
+        Component componentMessage = Component.text(messageCreateEvent.getMessage().getContent());
+
+        for (Attachment attachment : message.getAttachments()) {
             componentMessage = componentMessage.append(Component
-                        .text(MessageFormat.format(
-                                multiChatModule.getConfig().getAttachmentPattern(),
-                                attachment.getFilename()))
-                        .clickEvent(ClickEvent.clickEvent(ClickEvent.Action.OPEN_URL, attachment.getUrl()))
+                    .text(MessageFormat.format(
+                            multiChatModule.getConfig().getAttachmentPattern(),
+                            attachment.getFilename()))
+                    .clickEvent(ClickEvent.clickEvent(ClickEvent.Action.OPEN_URL, attachment.getUrl()))
             );
         }
         Bukkit.broadcast(componentMessage, "discomc.message.discord");

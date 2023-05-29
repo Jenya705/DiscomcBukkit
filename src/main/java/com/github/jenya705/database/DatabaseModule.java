@@ -21,7 +21,7 @@ import java.util.logging.Level;
 @Setter(AccessLevel.PROTECTED)
 public class DatabaseModule implements DiscomcModule {
 
-    public static final String[] availableSQLTypes = new String[] {"mysql", "sqlite"};
+    public static final String[] availableSQLTypes = new String[]{"mysql", "sqlite"};
 
     private Connection connection;
     private DatabaseConfig config;
@@ -48,16 +48,14 @@ public class DatabaseModule implements DiscomcModule {
                 if (e instanceof ClassNotFoundException) {
                     discomc.getLogger().severe(String.format("[Database] Sql type %s is not loaded in plugin," +
                             " reinstall plugin and report this bug to developer, disabling plugin", getConfig().getSqlType()));
-                }
-                else {
+                } else {
                     discomc.getLogger().severe(String.format("[Database] Sql type %s is not exist" +
                             " in default context, disabling plugin", getConfig().getSqlType()));
                 }
                 discomc.getServer().getPluginManager().disablePlugin(discomc);
                 return;
             }
-        }
-        else {
+        } else {
             try {
                 Class.forName(getConfig().getSqlDriver());
             } catch (ClassNotFoundException e) {
@@ -70,14 +68,14 @@ public class DatabaseModule implements DiscomcModule {
         }
         try {
             if (getConfig().getSqlType().equalsIgnoreCase("sqlite")) {
-                connection = DriverManager.getConnection(new File(
+                connection = DriverManager.getConnection("jdbc:sqlite:" + new File(
                         discomc.getDataFolder(), "database.db").getAbsolutePath());
             } else {
                 connection = DriverManager.getConnection(String.format("jdbc:%s://%s/%s",
                         getConfig().getSqlType().toLowerCase(Locale.ROOT), getConfig().getSqlHost(),
                         getConfig().getSqlDatabase()), getConfig().getSqlUser(), getConfig().getSqlPassword());
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             discomc.getLogger().log(Level.SEVERE, "[Database] SQL exception, disabling plugin:", e);
             discomc.getServer().getPluginManager().disablePlugin(discomc);
             return;
@@ -128,11 +126,10 @@ public class DatabaseModule implements DiscomcModule {
     public ResultSet query(String sql, Object... objects) throws SQLException {
         if (objects.length == 0) {
             return getConnection().createStatement().executeQuery(sql);
-        }
-        else {
+        } else {
             PreparedStatement statement = getConnection().prepareStatement(sql);
             for (int i = 0; i < objects.length; ++i) {
-                statement.setObject(i+1, objects[i]);
+                statement.setObject(i + 1, objects[i]);
             }
             return statement.executeQuery();
         }
@@ -141,11 +138,10 @@ public class DatabaseModule implements DiscomcModule {
     public ResultSet query(String sql, List<Object> objects) throws SQLException {
         if (objects.isEmpty()) {
             return getConnection().createStatement().executeQuery(sql);
-        }
-        else {
+        } else {
             PreparedStatement statement = getConnection().prepareStatement(sql);
             for (int i = 0; i < objects.size(); ++i) {
-                statement.setObject(i+1, objects.get(i));
+                statement.setObject(i + 1, objects.get(i));
             }
             return statement.executeQuery();
         }
@@ -154,11 +150,10 @@ public class DatabaseModule implements DiscomcModule {
     public void update(String sql, Object... objects) throws SQLException {
         if (objects.length == 0) {
             getConnection().createStatement().executeUpdate(sql);
-        }
-        else {
+        } else {
             PreparedStatement statement = getConnection().prepareStatement(sql);
             for (int i = 0; i < objects.length; ++i) {
-                statement.setObject(i+1, objects[i]);
+                statement.setObject(i + 1, objects[i]);
             }
             statement.executeUpdate();
         }
@@ -167,11 +162,10 @@ public class DatabaseModule implements DiscomcModule {
     public void update(String sql, List<Object> objects) throws SQLException {
         if (objects.isEmpty()) {
             getConnection().createStatement().executeUpdate(sql);
-        }
-        else {
+        } else {
             PreparedStatement statement = getConnection().prepareStatement(sql);
             for (int i = 0; i < objects.size(); ++i) {
-                statement.setObject(i+1, objects.get(i));
+                statement.setObject(i + 1, objects.get(i));
             }
             statement.executeUpdate();
         }
@@ -181,7 +175,7 @@ public class DatabaseModule implements DiscomcModule {
         Discomc discomc = Discomc.getPlugin();
         File sqlDirectoryAsFile = new File(discomc.getDataFolder(), "sql");
         sqlDirectoryAsFile.mkdir();
-        for (String script: scripts) {
+        for (String script : scripts) {
             InputStream defaultInputStream = getClass().getClassLoader().getResourceAsStream("sql/" + script + ".sql");
             if (defaultInputStream != null) {
                 File file = FilesUtil.getRecursivelyFile("sql", script + ".sql");
@@ -190,7 +184,7 @@ public class DatabaseModule implements DiscomcModule {
                     FilesUtil.saveFromInputStream(file, defaultInputStream);
                 }
             }
-            for (String sqlDirectory: availableSQLTypes) {
+            for (String sqlDirectory : availableSQLTypes) {
                 FilesUtil.getRecursivelyFile("sql", sqlDirectory).mkdir();
                 InputStream fixedInputStream = getClass().getClassLoader().getResourceAsStream("sql/" + sqlDirectory + "/" + script + ".sql");
                 if (fixedInputStream != null) {
